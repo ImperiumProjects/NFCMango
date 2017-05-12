@@ -5,4 +5,5 @@
     <string name="nfcscreen_display_message">Go find those Nfćmon!</string>
     <string name="nfcscreen_button">View Caught Nfćmon</string>
     <string name="caught_list_header">Caught Nfćmon:</string>
+    <string name="action_settings">Settings</string>
 </resources>

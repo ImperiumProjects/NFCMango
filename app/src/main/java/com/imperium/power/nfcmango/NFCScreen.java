@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 public class NFCScreen extends AppCompatActivity {
 
+    PendingIntent nfcPendingIntent;
+    NfcAdapter nfcAdpt;
+    IntentFilter[] intentFiltersArray;
+    Intent nfcIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +29,15 @@ public class NFCScreen extends AppCompatActivity {
             Toast.makeText(this, "Enable NFC before using the app", Toast.LENGTH_LONG).show();
         }
 
-        Intent nfcIntent = new Intent(this, getClass());
+        nfcIntent = new Intent(this, getClass());
         nfcIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        PendingIntent nfcPendingIntent = PendingIntent.getActivity(this, 0, nfcIntent, 0);
+        nfcPendingIntent = PendingIntent.getActivity(this, 0, nfcIntent, 0);
         IntentFilter tagIntentFilter =
                 new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
         try {
             tagIntentFilter.addDataType("text/plain");
-            IntentFilter[] intentFiltersArray = new IntentFilter[]{tagIntentFilter};
+            intentFiltersArray = new IntentFilter[]{tagIntentFilter};
         }
         catch(Throwable t) {
             t.printStackTrace();
@@ -43,7 +48,8 @@ public class NFCScreen extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         nfcAdpt.enableForegroundDispatch(this, nfcPendingIntent, intentFiltersArray, null);
-        handleIntent(getIntent());
+        //Intent intent = new Intent(this, NFCScreen.class);
+        startActivity(nfcIntent); //this is causing crashes
     }
 
     @Override
@@ -52,7 +58,36 @@ public class NFCScreen extends AppCompatActivity {
         nfcAdpt.disableForegroundDispatch(this);
     }
 
-    /** Called when the user taps the View Caught Cfcm button */
+    /*@Override
+    public void onNewIntent(Intent intent) {
+        Log.d("Nfc", "New intent");
+        getTag(intent);
+    }*/
+
+    /*private void getTag(Intent i) {
+        if (i == null)
+            return ;
+
+        String type = i.getType();
+        String action = i.getAction();
+        List<ndefdata>dataList = new ArrayList<ndefdata>();
+
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
+            Log.d("Nfc", "Action NDEF Found");
+            Parcelable[] parcs = i.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+
+            for (Parcelable p : parcs) {
+                recNumberTxt.setText(String.valueOf(numRec));
+                NdefRecord[] records = msg.getRecords();
+                for (NdefRecord record: records) {
+                    short tnf = record.getTnf();
+                    // Here we handle the payload
+                }
+            }
+        }
+    }*/
+
+    /** Called when the user taps the View Caught Nfcm button */
     public void viewCaught(View view) {
         Intent intent = new Intent(this, CaughtList.class);
         startActivity(intent);
