@@ -2,8 +2,12 @@
     <string name="app_name">NFC Mango</string>
     <string name="home_screen_button">Catch!</string>
     <string name="home_screen_header">LabDay 2017</string>
-    <string name="nfcscreen_display_message">Go find those Nfćmon!</string>
-    <string name="nfcscreen_button">View Caught Nfćmon</string>
-    <string name="caught_list_header">Caught Nfćmon:</string>
+    <string name="home_screen_list">&#8226; The rules \n\u2022
+                                    will be \n\u2022
+                                    listed here \n
+    </string>
+    <string name="nfcscreen_display_message">Go find those Nfcmon!</string>
+    <string name="nfcscreen_button">View Caught Nfcmon</string>
+    <string name="caught_list_header">Caught Nfcmon:</string>
     <string name="action_settings">Settings</string>
 </resources>
