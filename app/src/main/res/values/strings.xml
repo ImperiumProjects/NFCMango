@@ -10,4 +10,12 @@
     <string name="nfcscreen_button">View Caught Nfcmon</string>
     <string name="caught_list_header">Caught Nfcmon:</string>
     <string name="action_settings">Settings</string>
+    <string-array name="PKMN">
+        <item>Pikachu</item>
+        <item>Oddish</item>
+        <item>Bulbasaur</item>
+        <item>Dragonite</item>
+        <item>Vulpix</item>
+        <item>Seadra</item>
+    </string-array>
 </resources>
