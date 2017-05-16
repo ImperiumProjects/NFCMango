@@ -2,9 +2,9 @@
     <string name="app_name">NFC Mango</string>
     <string name="home_screen_button">Catch!</string>
     <string name="home_screen_header">LabDay 2017</string>
-    <string name="home_screen_list">&#8226; The rules \n\u2022
-                                    will be \n\u2022
-                                    listed here \n
+    <string name="home_screen_list">&#8226; Find all X Pkmn in the ATC \n\u2022
+                                    Tap with NFC or scan the QR code \n\u2022
+                                    Collect all the Pkmn then visit ITS for a prize! \n
     </string>
     <string name="nfcscreen_display_message">Go find those Nfcmon!</string>
     <string name="nfcscreen_button">View Caught Nfcmon</string>
@@ -18,4 +18,5 @@
         <item>Vulpix</item>
         <item>Seadra</item>
     </string-array>
+    <string name="list_number_caught">You have caught 0 of 18 Pkmn</string>
 </resources>
