@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.imperium.power.nfcmango">
 
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,10 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NFCScreen" />
         </activity>
+        <activity android:name=".PikachuDetails"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
     </application>
-    <intent-filter>
-        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <data android:mimeType="text/plain"/>
-    </intent-filter>
+
 </manifest>
