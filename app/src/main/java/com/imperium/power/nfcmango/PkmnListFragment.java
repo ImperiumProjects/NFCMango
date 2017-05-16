@@ -62,13 +62,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
 
     @Override
     public void onStart() {
-        // TODO Auto-generated method stub
         super.onStart();
         getListView().setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> av, View v, int pos,
                                     long id) {
-                // TODO Auto-generated method stub
                 Toast.makeText(getActivity(), data.get(pos).get("Player"), Toast.LENGTH_SHORT).show();
             }
         });
