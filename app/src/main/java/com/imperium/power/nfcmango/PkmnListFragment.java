@@ -1,6 +1,7 @@
 package com.imperium.power.nfcmango;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,12 +46,12 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         for(int i=0;i<names.length;i++)
         {
             map=new HashMap<String, String>();
-            map.put("Player", names[i]);
+            map.put("Pkmn", names[i]);
             map.put("Image", Integer.toString(pokemon[i]));
             data.add(map);
         }
         //KEYS IN MAP
-        String[] from={"Player","Image"};
+        String[] from={"Pkmn","Image"};
         //IDS OF VIEWS
         int[] to={R.id.nameTxt,R.id.imageView1};
         //ADAPTER
@@ -67,22 +67,67 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             @Override
             public void onItemClick(AdapterView<?> av, View v, int pos,
                                     long id) {
-                Toast.makeText(getActivity(), data.get(pos).get("Player"), Toast.LENGTH_SHORT).show();
+                Intent intent;
+                String pkmnClicked = data.get(pos).get("Pkmn");
+                if(pkmnClicked.equals("Pikachu")){
+                    intent = new Intent(v.getContext(), PikachuDetails.class);
+                    startActivity(intent);
+                }
+                else if(pkmnClicked.equals("Bulbasaur")){
+                    intent = new Intent(v.getContext(), BulbasaurDetails.class);
+                    startActivity(intent);
+                }
+                else if(pkmnClicked.equals("Dragonite")){
+                    intent = new Intent(v.getContext(), DragoniteDetails.class);
+                    startActivity(intent);
+                }
+                else if(pkmnClicked.equals("Seadra")){
+                    intent = new Intent(v.getContext(), SeadraDetails.class);
+                    startActivity(intent);
+                }
+                else if(pkmnClicked.equals("Oddish")){
+                    intent = new Intent(v.getContext(), OddishDetails.class);
+                    startActivity(intent);
+                }
+                else if(pkmnClicked.equals("Vulpix")){
+                    intent = new Intent(v.getContext(), VulpixDetails.class);
+                    startActivity(intent);
+                }
+                else{
+                }
             }
         });
     }
 
-    /*@Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.PKMN, android.R.layout.simple_list_item_1);
-        setListAdapter(adapter);
-        getListView().setOnItemClickListener(this);
-    }*/
-
     @Override
     public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
-        Toast.makeText(getActivity(), data.get(pos).get("Player"), Toast.LENGTH_SHORT).show();
+        Intent intent;
+        String pkmnClicked = data.get(pos).get("Pkmn");
+        if(pkmnClicked.equals("Pikachu")){
+            intent = new Intent(v.getContext(), PikachuDetails.class);
+            startActivity(intent);
+        }
+        else if(pkmnClicked.equals("Bulbasaur")){
+            intent = new Intent(v.getContext(), BulbasaurDetails.class);
+            startActivity(intent);
+        }
+        else if(pkmnClicked.equals("Dragonite")){
+            intent = new Intent(v.getContext(), DragoniteDetails.class);
+            startActivity(intent);
+        }
+        else if(pkmnClicked.equals("Seadra")){
+            intent = new Intent(v.getContext(), SeadraDetails.class);
+            startActivity(intent);
+        }
+        else if(pkmnClicked.equals("Oddish")){
+            intent = new Intent(v.getContext(), OddishDetails.class);
+            startActivity(intent);
+        }
+        else if(pkmnClicked.equals("Vulpix")){
+            intent = new Intent(v.getContext(), VulpixDetails.class);
+            startActivity(intent);
+        }
+        else{
+        }
     }
 }

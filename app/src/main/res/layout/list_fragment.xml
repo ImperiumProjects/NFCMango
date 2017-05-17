@@ -5,19 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/bannerTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/imageView1"
-        android:padding="10dp"
-        android:text="@string/list_number_caught"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"

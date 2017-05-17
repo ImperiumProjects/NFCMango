@@ -43,6 +43,52 @@
                 android:value=".NFCScreen" />
         </activity>
         <activity android:name=".PikachuDetails"
+            android:label="Pikachu"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
+        <activity android:name=".BulbasaurDetails"
+            android:label="Bulbasaur"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
+        <activity android:name=".DragoniteDetails"
+            android:label="Dragonite"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
+        <activity android:name=".SeadraDetails"
+            android:label="Seadra"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
+        <activity android:name=".OddishDetails"
+            android:label="Oddish"
+            android:parentActivityName=".CaughtList">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />>
+        </activity>
+        <activity android:name=".VulpixDetails"
+            android:label="Vulpix"
             android:parentActivityName=".CaughtList">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -51,5 +97,4 @@
                 android:value=".CaughtList" />>
         </activity>
     </application>
-
 </manifest>

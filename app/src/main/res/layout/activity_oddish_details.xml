@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.imperium.power.nfcmango.PikachuDetails">
+    tools:context="com.imperium.power.nfcmango.OddishDetails">
 
     <ImageView
         android:id="@+id/imageView"
@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="15dp"
-        app:srcCompat="@drawable/pika"
+        app:srcCompat="@drawable/odd"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.51" />
