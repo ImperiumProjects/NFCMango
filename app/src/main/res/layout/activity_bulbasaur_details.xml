@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="15dp"
-        app:srcCompat="@drawable/bulb"
+        app:srcCompat="@drawable/clr_bulb"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2" />
 

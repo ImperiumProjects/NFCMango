@@ -199,11 +199,46 @@ public class NFCScreen extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 if(result.equals("1")){
+                    if(!PikachuDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                        //// TODO: Add some method to change silhouette images
+                    }
                     Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("2")){
+                    if(!BulbasaurDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                    }
                     Intent intent = new Intent(getApplicationContext(), BulbasaurDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("3")){
+                    if(!DragoniteDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                    }
+                    Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("4")){
+                    if(!SeadraDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                    }
+                    Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("5")){
+                    if(!OddishDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                    }
+                    Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!VulpixDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught();
+                    }
+                    Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
                     startActivity(intent);
                 }
             }

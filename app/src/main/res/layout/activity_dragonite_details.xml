@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="15dp"
-        app:srcCompat="@drawable/drag"
+        app:srcCompat="@drawable/clr_drag"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.51" />
