@@ -26,7 +26,6 @@ public class NFCScreen extends AppCompatActivity {
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
 
-    private TextView mTextView;
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -34,7 +33,6 @@ public class NFCScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcscreen);
 
-        mTextView = (TextView) findViewById(R.id.textView_explanation);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         TextView tx = (TextView)findViewById(R.id.nfcscreen_header);
