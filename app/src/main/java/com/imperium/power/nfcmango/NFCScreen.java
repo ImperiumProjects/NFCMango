@@ -138,7 +138,6 @@ public class NFCScreen extends AppCompatActivity {
     /**
      * Background task for reading the data. Do not block the UI thread while reading.
      *
-     * @author Ralf Wondratschek
      *
      */
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {

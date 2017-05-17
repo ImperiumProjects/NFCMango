@@ -34,7 +34,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             R.drawable.vulp
     };
 
-    ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String,String>>();
+    static ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String,String>>();
     SimpleAdapter adapter;
 
     @Override
