@@ -1,11 +1,8 @@
 <resources>
-    <string name="app_name">NFC Mango</string>
+    <string name="app_name">EMBL Mango</string>
     <string name="home_screen_button">Catch!</string>
     <string name="home_screen_header">LabDay 2017</string>
-    <string name="home_screen_list">&#8226; Find all X Pkmn in the ATC \n\u2022
-                                    Tap with NFC or scan the QR code \n\u2022
-                                    Collect all the Pkmn then visit ITS for a prize! \n
-    </string>
+    <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_display_message">Go find those Nfcmon!</string>
     <string name="nfcscreen_button">View Caught Nfcmon</string>
     <string name="caught_list_header">Caught Nfcmon:</string>
@@ -19,5 +16,17 @@
         <item>Seadra</item>
     </string-array>
     <string name="list_number_caught">You have caught 0 of 18 Pkmn</string>
+    <string name="nfcscreen_qr_button">Scan QR</string>
+    <string name="nfcscreen_map_button">View Map</string>
+    <string name="pikachu_screen_caught">You caught a Pikachu!</string>
+    <string name="bulbasaur_screen_caught">You caught a Bulbasaur!</string>
+    <string name="dragonite_screen_caught">You caught a Dragonite!</string>
+    <string name="oddish_screen_caught">You caught an Oddish!</string>
+    <string name="seadra_screen_caught">You caught a Seadra!</string>
+    <string name="vulpix_screen_caught">You caught a Vulpix!</string>
     <string name="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="coloured_pikachu_picture">Coloured Pikachu picture</string>
+    <string name="coloured_seadra_picture">Coloured Seadra picture</string>
+    <string name="coloured_dragonite_picture">Coloured Dragonite picture</string>
+    <string name="coloured_oddish_picture">Coloured Oddish picture</string>
 </resources>
