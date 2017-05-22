@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
 import android.graphics.Point;
-import android.graphics.Typeface;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -17,8 +16,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -40,22 +37,14 @@ public class NFCScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcscreen);
 
-        Button scanBarcodeButton = (Button) findViewById(R.id.qr_button);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
-        TextView tx = (TextView)findViewById(R.id.nfcscreen_header);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Pokemon Solid.ttf");
-        tx.setTypeface(custom_font);
-
-        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), com.imperium.power.nfcmango.BarcodeCaptureActivity.class);
-                startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
-            }
-        });
-
         handleIntent(getIntent());
+    }
+
+    public void tapQR(View view) {
+        Intent intent = new Intent(this, BarcodeCaptureActivity.class);
+        startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
     }
 
     @Override
@@ -118,6 +107,48 @@ public class NFCScreen extends AppCompatActivity {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     Point[] p = barcode.cornerPoints;
+                    if(barcode.displayValue.equals("1")){
+                        if(!PikachuDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("2")){
+                        if(!BulbasaurDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), BulbasaurDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("3")){
+                        if(!DragoniteDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("4")){
+                        if(!SeadraDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("5")){
+                        if(!OddishDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("6")){
+                        if(!VulpixDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught();
+                        }
+                        Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
+                        startActivity(intent);
+                    }
                 }
             }
             else Log.e(LOG_TAG, String.format(getString(R.string.barcode_error_format), CommonStatusCodes.getStatusCodeString(resultCode)));

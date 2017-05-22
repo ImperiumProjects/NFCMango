@@ -4,7 +4,7 @@
     <string name="home_screen_header">LabDay 2017</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_display_message">Go find those Nfcmon!</string>
-    <string name="nfcscreen_button">View Caught Nfcmon</string>
+    <string name="nfcscreen_button">VIEW EMBLDEX</string>
     <string name="caught_list_header">Caught Nfcmon:</string>
     <string name="action_settings">Settings</string>
     <string-array name="PKMN">

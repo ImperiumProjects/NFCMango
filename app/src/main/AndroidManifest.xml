@@ -19,7 +19,6 @@
         <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,11 +36,6 @@
 
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
