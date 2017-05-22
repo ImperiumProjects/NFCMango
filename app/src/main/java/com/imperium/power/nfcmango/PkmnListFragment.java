@@ -40,21 +40,22 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        //MAP
-        HashMap<String, String> map=new HashMap<String, String>();
-        //FILL
-        for(int i=0;i<names.length;i++)
-        {
-            map=new HashMap<String, String>();
-            map.put("Pkmn", names[i]);
-            map.put("Image", Integer.toString(pokemon[i]));
-            data.add(map);
+        if (data.isEmpty()) {
+            // TODO Auto-generated method stub
+            //MAP
+            HashMap<String, String> map = new HashMap<String, String>();
+            //FILL
+            for (int i = 0; i < names.length; i++) {
+                map = new HashMap<String, String>();
+                map.put("Pkmn", names[i]);
+                map.put("Image", Integer.toString(pokemon[i]));
+                data.add(map);
+            }
         }
         //KEYS IN MAP
-        String[] from={"Pkmn","Image"};
+        String[] from = {"Pkmn", "Image"};
         //IDS OF VIEWS
-        int[] to={R.id.nameTxt,R.id.imageView1};
+        int[] to = {R.id.nameTxt, R.id.imageView1};
         //ADAPTER
         adapter = new SimpleAdapter(getActivity(), data, R.layout.list_fragment, from, to);
         setListAdapter(adapter);

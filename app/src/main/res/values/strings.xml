@@ -29,4 +29,11 @@
     <string name="coloured_seadra_picture">Coloured Seadra picture</string>
     <string name="coloured_dragonite_picture">Coloured Dragonite picture</string>
     <string name="coloured_oddish_picture">Coloured Oddish picture</string>
+    <string name="scan_barcode_button">Scan barcode</string>
+    <string name="no_barcode_captured">No barcode captured</string>
+    <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
 </resources>

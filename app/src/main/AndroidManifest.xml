@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.imperium.power.nfcmango">
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-feature
         android:name="android.hardware.nfc"
@@ -29,14 +31,17 @@
             android:parentActivityName=".HomeScreen">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
 
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -48,7 +53,9 @@
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
 
-
+        <activity
+            android:name=".BarcodeCaptureActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
 
         <activity
