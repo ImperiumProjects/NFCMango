@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">EMBL Mango</string>
     <string name="home_screen_button">Catch!</string>
-    <string name="home_screen_header">LabDay 2017</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
-    <string name="nfcscreen_display_message">Go find those Nfcmon!</string>
     <string name="nfcscreen_button">VIEW EMBLDEX</string>
     <string name="caught_list_header">Caught Nfcmon:</string>
     <string name="action_settings">Settings</string>
@@ -17,7 +15,6 @@
     </string-array>
     <string name="list_number_caught">You have caught 0 of 18 Pkmn</string>
     <string name="nfcscreen_qr_button">Scan QR</string>
-    <string name="nfcscreen_map_button">View Map</string>
     <string name="pikachu_screen_caught">You caught a Pikachu!</string>
     <string name="bulbasaur_screen_caught">You caught a Bulbasaur!</string>
     <string name="dragonite_screen_caught">You caught a Dragonite!</string>
