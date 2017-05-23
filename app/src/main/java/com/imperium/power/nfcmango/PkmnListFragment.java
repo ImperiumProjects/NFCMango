@@ -16,7 +16,16 @@ import java.util.HashMap;
 
 public class PkmnListFragment extends ListFragment implements OnItemClickListener {
 
-    String[] names = new String[] {
+    static String[] blank_names = new String[] {
+            "??????????",
+            "??????????",
+            "??????????",
+            "??????????",
+            "??????????",
+            "??????????"
+    };
+
+    static String[] names = new String[] {
             "Pikachu",
             "Bulbasaur",
             "Dragonite",
@@ -25,7 +34,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             "Vulpix"
     };
 
-    int[] pokemon = new int[]{
+    static int[] pokemon = new int[]{
             R.drawable.pika,
             R.drawable.bulb,
             R.drawable.drag,
@@ -34,8 +43,17 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             R.drawable.vulp
     };
 
+    static int[] clr_pokemon = new int[]{
+            R.drawable.clr_pika,
+            R.drawable.clr_bulb,
+            R.drawable.clr_drag,
+            R.drawable.clr_hors,
+            R.drawable.clr_odd,
+            R.drawable.clr_vulp
+    };
+
     static ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String,String>>();
-    SimpleAdapter adapter;
+    static SimpleAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,9 +63,9 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             //MAP
             HashMap<String, String> map = new HashMap<String, String>();
             //FILL
-            for (int i = 0; i < names.length; i++) {
+            for (int i = 0; i < blank_names.length; i++) {
                 map = new HashMap<String, String>();
-                map.put("Pkmn", names[i]);
+                map.put("Pkmn", blank_names[i]);
                 map.put("Image", Integer.toString(pokemon[i]));
                 data.add(map);
             }
@@ -60,6 +78,25 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         adapter = new SimpleAdapter(getActivity(), data, R.layout.list_fragment, from, to);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    public static void updateListFragment(String pkmnNumber){
+
+        HashMap<String, String> map = new HashMap<String, String>();
+
+        for(int i = 0; i < data.size(); i++){
+            if (Integer.parseInt(pkmnNumber) == i + 1){
+                map = new HashMap<String, String>();
+                map.put("Pkmn", names[i]);
+                map.put("Image", Integer.toString(clr_pokemon[i]));
+                data.set(i, map);
+            }
+        }
+
+        //KEYS IN MAP
+        String[] from = {"Pkmn", "Image"};
+        //IDS OF VIEWS
+        int[] to = {R.id.nameTxt, R.id.imageView1};
     }
 
     @Override

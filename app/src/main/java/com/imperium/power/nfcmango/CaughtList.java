@@ -17,7 +17,8 @@ public class CaughtList extends AppCompatActivity {
         mTextView.setText("You have caught " + numberCaught + " out of 18 Pkmn");
     }
 
-    public static void incrementNumberCaught() {
+    public static void incrementNumberCaught(String pkmn) {
         numberCaught += 1;
+        PkmnListFragment.updateListFragment(pkmn);
     }
 }

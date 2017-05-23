@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
-import android.graphics.Point;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -106,45 +105,45 @@ public class NFCScreen extends AppCompatActivity {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-                    Point[] p = barcode.cornerPoints;
+                    //Point[] p = barcode.cornerPoints;
                     if(barcode.displayValue.equals("1")){
                         if(!PikachuDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("2")){
                         if(!BulbasaurDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), BulbasaurDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("3")){
                         if(!DragoniteDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("4")){
                         if(!SeadraDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("5")){
                         if(!OddishDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("6")){
                         if(!VulpixDetails.alreadyCaught) {
-                            CaughtList.incrementNumberCaught();
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
                         Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
                         startActivity(intent);
@@ -260,43 +259,42 @@ public class NFCScreen extends AppCompatActivity {
             if (result != null) {
                 if(result.equals("1")){
                     if(!PikachuDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
-                        //// TODO: Add some method to change silhouette images
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("2")){
                     if(!BulbasaurDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), BulbasaurDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("3")){
                     if(!DragoniteDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("4")){
                     if(!SeadraDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("5")){
                     if(!OddishDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("6")){
                     if(!VulpixDetails.alreadyCaught) {
-                        CaughtList.incrementNumberCaught();
+                        CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
                     startActivity(intent);
