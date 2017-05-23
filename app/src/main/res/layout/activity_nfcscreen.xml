@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/button"
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="385dp"
+        android:layout_width="450dp"
         android:layout_height="78dp"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="0dp"
@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/qr_button"
         style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="385dp"
+        android:layout_width="450dp"
         android:layout_height="78dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
