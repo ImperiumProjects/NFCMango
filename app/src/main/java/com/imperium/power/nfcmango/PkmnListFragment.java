@@ -162,8 +162,6 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
-                else{
-                }
             }
         });
     }
@@ -173,30 +171,58 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         Intent intent;
         String pkmnClicked = data.get(pos).get("Pkmn");
         if(pkmnClicked.equals("Pikachu")){
-            intent = new Intent(v.getContext(), PikachuDetails.class);
-            startActivity(intent);
+            if(PikachuDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), PikachuDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
         else if(pkmnClicked.equals("Bulbasaur")){
-            intent = new Intent(v.getContext(), BulbasaurDetails.class);
-            startActivity(intent);
+            if(BulbasaurDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), BulbasaurDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
         else if(pkmnClicked.equals("Dragonite")){
-            intent = new Intent(v.getContext(), DragoniteDetails.class);
-            startActivity(intent);
+            if(DragoniteDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), DragoniteDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
         else if(pkmnClicked.equals("Seadra")){
-            intent = new Intent(v.getContext(), SeadraDetails.class);
-            startActivity(intent);
+            if(SeadraDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), SeadraDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
         else if(pkmnClicked.equals("Oddish")){
-            intent = new Intent(v.getContext(), OddishDetails.class);
-            startActivity(intent);
+            if(OddishDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), OddishDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
         else if(pkmnClicked.equals("Vulpix")){
-            intent = new Intent(v.getContext(), VulpixDetails.class);
-            startActivity(intent);
-        }
-        else{
+            if(VulpixDetails.alreadyCaught) {
+                intent = new Intent(v.getContext(), VulpixDetails.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

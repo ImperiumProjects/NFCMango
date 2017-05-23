@@ -28,7 +28,6 @@ public class NFCScreen extends AppCompatActivity {
     public static final String TAG = "NfcDemo";
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
-
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -72,19 +71,18 @@ public class NFCScreen extends AppCompatActivity {
 
     private void handleIntent(Intent intent) {
         String action = intent.getAction();
-        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
 
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
             String type = intent.getType();
             if (MIME_TEXT_PLAIN.equals(type)) {
-
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
                 new NdefReaderTask().execute(tag);
-
-            } else {
+            }
+            else {
                 Log.d(TAG, "Wrong mime type: " + type);
             }
-        } else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)) {
-
+        }
+        else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)) {
             // In case we would still use the Tech Discovered Intent
             Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             String[] techList = tag.getTechList();
@@ -105,7 +103,6 @@ public class NFCScreen extends AppCompatActivity {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-                    //Point[] p = barcode.cornerPoints;
                     if(barcode.displayValue.equals("1")){
                         if(!PikachuDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
@@ -197,8 +194,6 @@ public class NFCScreen extends AppCompatActivity {
 
     /**
      * Background task for reading the data. Do not block the UI thread while reading.
-     *
-     *
      */
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {
 
