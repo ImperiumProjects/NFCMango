@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".HomeScreen">
+        <activity android:name=".HomeScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -27,7 +28,8 @@
 
         <activity
             android:name=".NFCScreen"
-            android:parentActivityName=".HomeScreen">
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
@@ -50,11 +52,13 @@
 
         <activity
             android:name=".BarcodeCaptureActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <activity
             android:name=".CaughtList"
-            android:parentActivityName=".NFCScreen">
+            android:parentActivityName=".NFCScreen"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -64,7 +68,8 @@
 
         <activity android:name=".PikachuDetails"
             android:label="Pikachu"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -74,7 +79,8 @@
 
         <activity android:name=".BulbasaurDetails"
             android:label="Bulbasaur"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -84,7 +90,8 @@
 
         <activity android:name=".DragoniteDetails"
             android:label="Dragonite"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -94,7 +101,8 @@
 
         <activity android:name=".SeadraDetails"
             android:label="Seadra"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -104,7 +112,8 @@
 
         <activity android:name=".OddishDetails"
             android:label="Oddish"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -114,7 +123,8 @@
 
         <activity android:name=".VulpixDetails"
             android:label="Vulpix"
-            android:parentActivityName=".CaughtList">
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
