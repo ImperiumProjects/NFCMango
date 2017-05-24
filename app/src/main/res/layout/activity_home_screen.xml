@@ -2,10 +2,28 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_animated_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.imperium.power.nfcmango.HomeScreen">
+    <!--android:background="@drawable/background_animated_dark" -->
+
+    <ImageView
+        android:id="@+id/background_one"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pokemon_forest_bg_highblur" />
+
+    <ImageView
+        android:id="@+id/background_two"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pokemon_forest_bg_highblur" />
 
     <TextView
         android:id="@+id/textView4"
