@@ -5,25 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.imperium.power.nfcmango.HomeScreen">
-    <!--android:background="@drawable/background_animated_dark" -->
 
     <ImageView
         android:id="@+id/background_one"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
+        android:adjustViewBounds="false"
         android:scaleType="centerCrop"
-        android:src="@drawable/pokemon_forest_bg_highblur" />
-
-    <ImageView
-        android:id="@+id/background_two"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-        android:scaleType="centerCrop"
-        android:src="@drawable/pokemon_forest_bg_highblur" />
+        android:src="@drawable/pokemon_forest_bg_highblur"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="8dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -31,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/home_screen_list"
         android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,6 +36,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/from_itservices"
         android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -79,11 +72,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="@string/home_screen_button"
         android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="24dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
