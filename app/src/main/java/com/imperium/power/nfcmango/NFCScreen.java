@@ -400,84 +400,84 @@ public class NFCScreen extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), OnixDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("7")){
                     if(!MeowthDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), MeowthDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("8")){
                     if(!EeveeDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), EeveeDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("9")){
                     if(!AbraDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), AbraDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("10")){
                     if(!JigglypuffDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), JigglypuffDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("11")){
                     if(!ChanseyDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), ChanseyDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("12")){
                     if(!SlowpokeDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), SlowpokeDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("13")){
                     if(!CuboneDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), CuboneDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("14")){
                     if(!MrMimeDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), MrMimeDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("15")){
                     if(!FlareonDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), FlareonDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("16")){
                     if(!JolteonDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), JolteonDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("17")){
                     if(!VaporeonDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
                     Intent intent = new Intent(getApplicationContext(), VaporeonDetails.class);
                     startActivity(intent);
                 }
-                else if(result.equals("6")){
+                else if(result.equals("18")){
                     if(!MewtwoDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
