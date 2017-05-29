@@ -16,7 +16,7 @@
             android:layout_height="98dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="14dp"
-            android:src="@drawable/pika" />
+            android:src="@drawable/pikachu" />
 
         <TextView
             android:id="@+id/nameTxt"

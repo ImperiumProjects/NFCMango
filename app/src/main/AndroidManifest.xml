@@ -88,41 +88,173 @@
                 android:value=".CaughtList" />>
         </activity>
 
-        <activity android:name=".DragoniteDetails"
-            android:label="Dragonite"
+        <activity android:name=".MewtwoDetails"
+            android:label="Mewtwo"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CaughtList" />>
+                android:value=".CaughtList" />
         </activity>
 
-        <activity android:name=".SeadraDetails"
-            android:label="Seadra"
+        <activity android:name=".SquirtleDetails"
+            android:label="Squirtle"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CaughtList" />>
+                android:value=".CaughtList" />
         </activity>
 
-        <activity android:name=".OddishDetails"
-            android:label="Oddish"
+        <activity android:name=".MrMimeDetails"
+            android:label="Mr Mime"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CaughtList" />>
+                android:value=".CaughtList" />
         </activity>
 
-        <activity android:name=".VulpixDetails"
-            android:label="Vulpix"
+        <activity android:name=".MeowthDetails"
+            android:label="Meowth"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".PidgeyDetails"
+            android:label="Pidgey"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".FlareonDetails"
+            android:label="Flareon"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".ChanseyDetails"
+            android:label="Chansey"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".EeveeDetails"
+            android:label="Eevee"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".JolteonDetails"
+            android:label="Jolteon"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".JigglypuffDetails"
+            android:label="Jigglypuff"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".OnixDetails"
+            android:label="Onix"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".SlowpokeDetails"
+            android:label="Slowpoke"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".CuboneDetails"
+            android:label="Cubone"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".VaporeonDetails"
+            android:label="Vaporeon"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".AbraDetails"
+            android:label="Abra"
+            android:parentActivityName=".CaughtList"
+            android:screenOrientation="portrait">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
+        </activity>
+
+        <activity android:name=".CharmanderDetails"
+            android:label="Charmander"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 

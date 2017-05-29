@@ -17,6 +17,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -40,17 +41,36 @@ public class NFCScreen extends AppCompatActivity {
     long timeInMilliseconds = 0L;
     long timeSwapBuffer = 0L;
     long updatedTime = 0L;
+    int stoppedMilliseconds = 0;
+
+    Chronometer mChronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcscreen);
 
+        mChronometer = (Chronometer) findViewById(R.id.chronometer2);
+
         timerValue = (TextView) findViewById(R.id.timerValue);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         startTime = SystemClock.uptimeMillis();
         timerHandler.postDelayed(updateTimerThread, 0);
+
+        String chronoText = mChronometer.getText().toString();
+        String array[] = chronoText.split(":");
+        if(array.length == 2){
+            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
+                    + Integer.parseInt(array[1]) * 1000;
+        }
+        else if(array.length == 3){
+            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
+                    + Integer.parseInt(array[1]) * 60 * 1000
+                    + Integer.parseInt(array[2]) * 1000;
+        }
+        mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
+        mChronometer.start();
 
         handleIntent(getIntent());
     }
@@ -64,6 +84,10 @@ public class NFCScreen extends AppCompatActivity {
             int mins = secs / 60;
             int hours = secs / 3600;
             secs = secs % 60;
+
+            if(mins == 60){
+                secs = 0;
+            }
             timerValue.setText("" + hours + ":" + String.format("%02d", mins) + ":" + String.format("%02d", secs));
             timerHandler.postDelayed(this, 0);
         }
@@ -133,10 +157,10 @@ public class NFCScreen extends AppCompatActivity {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     if(barcode.displayValue.equals("1")){
-                        if(!PikachuDetails.alreadyCaught) {
+                        if(!CharmanderDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
-                        Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
+                        Intent intent = new Intent(getApplicationContext(), CharmanderDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("2")){
@@ -147,31 +171,115 @@ public class NFCScreen extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("3")){
-                        if(!DragoniteDetails.alreadyCaught) {
+                        if(!SquirtleDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
-                        Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
+                        Intent intent = new Intent(getApplicationContext(), SquirtleDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("4")){
-                        if(!SeadraDetails.alreadyCaught) {
+                        if(!PikachuDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
-                        Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
+                        Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("5")){
-                        if(!OddishDetails.alreadyCaught) {
+                        if(!PidgeyDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
-                        Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
+                        Intent intent = new Intent(getApplicationContext(), PidgeyDetails.class);
                         startActivity(intent);
                     }
                     if(barcode.displayValue.equals("6")){
-                        if(!VulpixDetails.alreadyCaught) {
+                        if(!OnixDetails.alreadyCaught) {
                             CaughtList.incrementNumberCaught(barcode.displayValue);
                         }
-                        Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
+                        Intent intent = new Intent(getApplicationContext(), OnixDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("7")){
+                        if(!MeowthDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), MeowthDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("8")){
+                        if(!EeveeDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), EeveeDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("9")){
+                        if(!AbraDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), AbraDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("10")){
+                        if(!JigglypuffDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), JigglypuffDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("11")){
+                        if(!ChanseyDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), ChanseyDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("12")){
+                        if(!SlowpokeDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), SlowpokeDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("13")){
+                        if(!CuboneDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), CuboneDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("14")){
+                        if(!MrMimeDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), MrMimeDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("15")){
+                        if(!FlareonDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), FlareonDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("16")){
+                        if(!JolteonDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), JolteonDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("17")){
+                        if(!VaporeonDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), VaporeonDetails.class);
+                        startActivity(intent);
+                    }
+                    if(barcode.displayValue.equals("18")){
+                        if(!MewtwoDetails.alreadyCaught) {
+                            CaughtList.incrementNumberCaught(barcode.displayValue);
+                        }
+                        Intent intent = new Intent(getApplicationContext(), MewtwoDetails.class);
                         startActivity(intent);
                     }
                 }
@@ -282,10 +390,10 @@ public class NFCScreen extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 if(result.equals("1")){
-                    if(!PikachuDetails.alreadyCaught) {
+                    if(!CharmanderDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
-                    Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), CharmanderDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("2")){
@@ -296,31 +404,115 @@ public class NFCScreen extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if(result.equals("3")){
-                    if(!DragoniteDetails.alreadyCaught) {
+                    if(!SquirtleDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
-                    Intent intent = new Intent(getApplicationContext(), DragoniteDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), SquirtleDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("4")){
-                    if(!SeadraDetails.alreadyCaught) {
+                    if(!PikachuDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
-                    Intent intent = new Intent(getApplicationContext(), SeadraDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), PikachuDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("5")){
-                    if(!OddishDetails.alreadyCaught) {
+                    if(!PidgeyDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
-                    Intent intent = new Intent(getApplicationContext(), OddishDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), PidgeyDetails.class);
                     startActivity(intent);
                 }
                 else if(result.equals("6")){
-                    if(!VulpixDetails.alreadyCaught) {
+                    if(!OnixDetails.alreadyCaught) {
                         CaughtList.incrementNumberCaught(result);
                     }
-                    Intent intent = new Intent(getApplicationContext(), VulpixDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), OnixDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!MeowthDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), MeowthDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!EeveeDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), EeveeDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!AbraDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), AbraDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!JigglypuffDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), JigglypuffDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!ChanseyDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), ChanseyDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!SlowpokeDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), SlowpokeDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!CuboneDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), CuboneDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!MrMimeDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), MrMimeDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!FlareonDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), FlareonDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!JolteonDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), JolteonDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!VaporeonDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), VaporeonDetails.class);
+                    startActivity(intent);
+                }
+                else if(result.equals("6")){
+                    if(!MewtwoDetails.alreadyCaught) {
+                        CaughtList.incrementNumberCaught(result);
+                    }
+                    Intent intent = new Intent(getApplicationContext(), MewtwoDetails.class);
                     startActivity(intent);
                 }
             }
