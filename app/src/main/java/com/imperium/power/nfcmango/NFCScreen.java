@@ -12,13 +12,11 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
-import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -28,19 +26,12 @@ import java.util.Arrays;
 
 public class NFCScreen extends AppCompatActivity {
 
-    public static final String MIME_TEXT_PLAIN = "text/plain";
-    public static final String TAG = "NfcDemo";
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
-    private TextView timerValue;
-    private long startTime = 0L;
 
-    private Handler timerHandler = new Handler();
-
-    long timeInMilliseconds = 0L;
-    long timeSwapBuffer = 0L;
-    long updatedTime = 0L;
+    public static final String MIME_TEXT_PLAIN = "text/plain";
+    public static final String TAG = "NfcDemo";
     int stoppedMilliseconds = 0;
 
     Chronometer mChronometer;
@@ -52,11 +43,7 @@ public class NFCScreen extends AppCompatActivity {
 
         mChronometer = (Chronometer) findViewById(R.id.chronometer2);
 
-        timerValue = (TextView) findViewById(R.id.timerValue);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
-
-        startTime = SystemClock.uptimeMillis();
-        timerHandler.postDelayed(updateTimerThread, 0);
 
         String chronoText = mChronometer.getText().toString();
         String array[] = chronoText.split(":");
@@ -74,24 +61,6 @@ public class NFCScreen extends AppCompatActivity {
 
         handleIntent(getIntent());
     }
-
-    private Runnable updateTimerThread = new Runnable(){
-        public void run(){
-            timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
-            updatedTime = timeSwapBuffer + timeInMilliseconds;
-
-            int secs = (int) (updatedTime / 1000);
-            int mins = secs / 60;
-            int hours = secs / 3600;
-            secs = secs % 60;
-
-            if(mins == 60){
-                secs = 0;
-            }
-            timerValue.setText("" + hours + ":" + String.format("%02d", mins) + ":" + String.format("%02d", secs));
-            timerHandler.postDelayed(this, 0);
-        }
-    };
 
     public void tapQR(View view) {
         Intent intent = new Intent(this, BarcodeCaptureActivity.class);
