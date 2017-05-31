@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">EMBL Mango</string>
-    <string name="home_screen_button">Catch!</string>
+    <string name="home_screen_button">Start!</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_button">VIEW EMBLDEX</string>
     <string name="caught_list_header">Caught Nfcmon:</string>
@@ -51,5 +51,10 @@
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="from_itservices">From ITServices</string>
     <string name="timerVal">00:00:00</string>
-    <string name="charmander_flavor_text">\n Charmander: \n The Lizard \n Pokemon \n \n H: 0.6m \n W: 8.5kg \n \n Rarity: Rare</string>
+    <string name="charmander_flavor_text">\n The Lizard \n Pokemon \n \n H: 0.6m \n W: 8.5kg \n \n Rarity: Rare</string>
+    <string name="username_field">Username...</string>
+    <string name="forest_background_image_blurred">forest background image blurred</string>
+    <string name="embl_style_pokeball">EMBL Style Pokeball</string>
+    <string name="pokemon_style_labday_logo">Pokemon Style LabDay logo</string>
+    <string name="nfcscreen_instructions">Find and scan all of the EMBLmon posters around the ATC \n Return to the IT Services booth to claim your prize \n The fastest time will win a grand prize, so get catching!</string>
 </resources>

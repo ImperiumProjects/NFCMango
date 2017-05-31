@@ -303,6 +303,11 @@ public class NFCScreen extends AppCompatActivity {
      */
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {
 
+        /**
+         *
+         * @param params
+         * @return
+         */
         @Override
         protected String doInBackground(Tag... params) {
             Tag tag = params[0];

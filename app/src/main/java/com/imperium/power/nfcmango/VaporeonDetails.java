@@ -5,8 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 
 public class VaporeonDetails extends AppCompatActivity {
 
+    //Boolean initialised as false as pokemon cannot be caught before view
+    //is ever created
     public static boolean alreadyCaught = false;
 
+    /**
+     * Creates view and sets alreadyCaught var to true
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

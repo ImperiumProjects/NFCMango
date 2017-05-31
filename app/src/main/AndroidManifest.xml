@@ -29,7 +29,6 @@
 
         <activity
             android:name=".NFCScreen"
-            android:parentActivityName=".HomeScreen"
             android:screenOrientation="portrait">
 
             <intent-filter>
@@ -43,9 +42,6 @@
             </intent-filter>
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeScreen" />
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />

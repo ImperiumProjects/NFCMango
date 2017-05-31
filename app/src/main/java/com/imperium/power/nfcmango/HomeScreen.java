@@ -8,6 +8,10 @@ import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
 
+    /**
+     * Creates view and adds setOnClickListener for pkball image
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {

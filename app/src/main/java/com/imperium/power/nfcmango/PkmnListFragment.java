@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 public class PkmnListFragment extends ListFragment implements OnItemClickListener {
 
+    //Array of placeholder strings for list fragment
     static String[] blank_names = new String[] {
             "??????????",
             "??????????",
@@ -37,6 +38,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             "??????????"
     };
 
+    //Array of strings for pokemon names in list once caught
     static String[] names = new String[] {
             "Charmander",
             "Bulbasaur",
@@ -58,6 +60,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             "Mewtwo"
     };
 
+    //Corresponding array of pokemon silhouette images
     static int[] pokemon = new int[]{
             R.drawable.charmander_silhouette,
             R.drawable.bulbasaur_silhouette,
@@ -79,6 +82,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             R.drawable.mewtwo_silhouette
     };
 
+    //Array of colored pokemon images for when caught
     static int[] clr_pokemon = new int[]{
             R.drawable.charmander,
             R.drawable.bulbasaur,
@@ -100,21 +104,30 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             R.drawable.mewtwo
     };
 
+    //ArrayList stores hashmaps created to store pairs of strings and images
     static ArrayList<HashMap<String, String>> data = new ArrayList<HashMap<String,String>>();
+    //View fragment adapter
     static SimpleAdapter adapter;
 
+    /**
+     * Generates view and list fragment. Called when view does not yet exist.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return returns superclass onCreateView() method with supplied arguments.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (data.isEmpty()) {
-            // TODO Auto-generated method stub
-            //MAP
+            //Create hash map to store strings + images
             HashMap<String, String> map = new HashMap<String, String>();
-            //FILL
+            //Creates new hash map for each pair
             for (int i = 0; i < blank_names.length; i++) {
                 map = new HashMap<String, String>();
                 map.put("Pkmn", blank_names[i]);
                 map.put("Image", Integer.toString(pokemon[i]));
+                //Stores each hash map in ArrayList
                 data.add(map);
             }
         }
@@ -128,6 +141,10 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    /**
+     * Updates list fragment when a pokemon is caught
+     * @param pkmnNumber index of pokemon to be updated
+     */
     public static void updateListFragment(String pkmnNumber){
 
         HashMap<String, String> map = new HashMap<String, String>();
@@ -147,6 +164,9 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         int[] to = {R.id.nameTxt, R.id.imageView1};
     }
 
+    /**
+     * Implements a setOnItemClickListener and checks if a pokemon has been caught
+     */
     @Override
     public void onStart() {
         super.onStart();
