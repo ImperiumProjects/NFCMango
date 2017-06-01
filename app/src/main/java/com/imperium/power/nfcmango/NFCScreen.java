@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
+import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -42,6 +43,9 @@ public class NFCScreen extends AppCompatActivity {
         setContentView(R.layout.activity_nfcscreen);
 
         mChronometer = (Chronometer) findViewById(R.id.chronometer2);
+        TextView username = (TextView) findViewById(R.id.usernameFieldNFC);
+
+        username.setText(HomeScreen.username);
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 

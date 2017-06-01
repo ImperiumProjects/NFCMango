@@ -19,7 +19,7 @@
         android:contentDescription="@string/forest_background_image_blurred" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/unField"
         style="@android:style/Widget.Holo.Light.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
         android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/unField"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
