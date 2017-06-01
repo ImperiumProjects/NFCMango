@@ -62,6 +62,11 @@ public class NFCScreen extends AppCompatActivity {
         handleIntent(getIntent());
     }
 
+    @Override
+    public void onBackPressed(){
+        moveTaskToBack(true);
+    }
+
     public void tapQR(View view) {
         Intent intent = new Intent(this, BarcodeCaptureActivity.class);
         startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);

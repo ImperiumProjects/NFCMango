@@ -24,6 +24,7 @@ public class HomeScreen extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
                     startActivity(intent);
+                    finish();
                 }
             });
         } catch (Exception e) {
