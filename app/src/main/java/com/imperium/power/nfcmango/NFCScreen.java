@@ -2,6 +2,7 @@ package com.imperium.power.nfcmango;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
+import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -30,11 +32,13 @@ public class NFCScreen extends AppCompatActivity {
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
+    private String filename = "usernameFile";
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
     int stoppedMilliseconds = 0;
 
+    FileOutputStream outputStream;
     Chronometer mChronometer;
 
     @Override
@@ -59,6 +63,15 @@ public class NFCScreen extends AppCompatActivity {
             stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
+        }
+
+        try{
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(HomeScreen.username.getBytes());
+            outputStream.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
         mChronometer.start();
