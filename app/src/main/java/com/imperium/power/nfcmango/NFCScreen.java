@@ -64,7 +64,6 @@ public class NFCScreen extends AppCompatActivity {
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
         }
-
         try{
             outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
             outputStream.write(HomeScreen.username.getBytes());
@@ -73,6 +72,7 @@ public class NFCScreen extends AppCompatActivity {
         catch (Exception e){
             e.printStackTrace();
         }
+
         mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
         mChronometer.start();
 
@@ -159,6 +159,12 @@ public class NFCScreen extends AppCompatActivity {
         }
     }
 
+    /**
+     * processes the result of a successful QR code scan
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == BARCODE_READER_REQUEST_CODE) {
@@ -325,8 +331,8 @@ public class NFCScreen extends AppCompatActivity {
     }
 
     /**
-     * @param activity The corresponding {@link } requesting to stop the foreground dispatch.
-     * @param adapter The {@link } used for the foreground dispatch.
+     * @param activity The corresponding {@link Activity} requesting to stop the foreground dispatch.
+     * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
         adapter.disableForegroundDispatch(activity);

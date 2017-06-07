@@ -11,7 +11,7 @@ public class MewtwoDetails extends AppCompatActivity {
 
     /**
      * Creates view and sets alreadyCaught var to true
-     * @param savedInstanceState
+     * @param savedInstanceState saved instance state info
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

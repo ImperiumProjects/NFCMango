@@ -17,6 +17,11 @@ public class CaughtList extends AppCompatActivity {
         mTextView.setText("You have caught " + numberCaught + " out of 18 Pkmn");
     }
 
+    /**
+     * increments numberCaught array when NFC or QR scanned
+     * sends update http request to leaderboard
+     * @param pkmn string name of pkmn
+     */
     public static void incrementNumberCaught(String pkmn) {
         numberCaught += 1;
         PkmnListFragment.updateListFragment(pkmn);
