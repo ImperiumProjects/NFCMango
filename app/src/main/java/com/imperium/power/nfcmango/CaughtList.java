@@ -25,5 +25,10 @@ public class CaughtList extends AppCompatActivity {
     public static void incrementNumberCaught(String pkmn) {
         numberCaught += 1;
         PkmnListFragment.updateListFragment(pkmn);
+        if (numberCaught == 18){
+            //
+            // Add HTTP POST code to finish timer
+            //
+        }
     }
 }

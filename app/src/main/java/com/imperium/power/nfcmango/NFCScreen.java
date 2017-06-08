@@ -73,6 +73,9 @@ public class NFCScreen extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //
+        // Add HTTP POST request code to start timer
+        //
         mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
         mChronometer.start();
 
