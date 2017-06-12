@@ -73,7 +73,8 @@
     <string name="forest_background_image_blurred">forest background image blurred</string>
     <string name="embl_style_pokeball">EMBL Style Pokeball</string>
     <string name="pokemon_style_labday_logo">Pokemon Style LabDay logo</string>
-    <string name="nfcscreen_instructions">Capture all the ITS Pokemon in the ATC \n You can scan the QR code or tap the NFC tag \n Return to the ITS booth to win prizes \n Fastest time wins a special prize! </string>
+    <string name="nfcscreen_instructions">Capture all the ITS Pokemon in the ATC \n Scan the QR code or tap the NFC tag \n Return to the ITS booth to win prizes \n Fastest time wins a special prize! </string>
     <string name="home_screen_instructions">Please enter your name as you would like it to appear on our leaderboard</string>
     <string name="nfc_screen_username">Username</string>
+    <string name="labday_logo_nfc_screen">labday_logo</string>
 </resources>
