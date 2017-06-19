@@ -70,6 +70,7 @@
     <string name="squirtle_flavor_text">\n The Tiny Turtle \n Pokemon \n \n H: 0.5m \n W: 9.0kg \n \n Rarity: Rare</string>
     <string name="vaporeon_flavor_text">\n The Bubble Jet \n Pokemon \n \n H: 1.0m \n W: 29.0kg \n \n Rarity: Very Rare</string>
     <string name="username_field">Username...</string>
+    <string name="home_screen_error">Please enter a username!</string>
     <string name="forest_background_image_blurred">forest background image blurred</string>
     <string name="embl_style_pokeball">EMBL Style Pokeball</string>
     <string name="pokemon_style_labday_logo">Pokemon Style LabDay logo</string>

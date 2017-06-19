@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -28,10 +29,15 @@ public class HomeScreen extends AppCompatActivity {
                 public void onClick(View v) {
                     if(!(usernameField.getText().toString().equals(""))){
                         username = usernameField.getText().toString();
+                        Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
+                        startActivity(intent);
+                        finish();
                     }
-                    Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
-                    startActivity(intent);
-                    finish();
+                    else{
+                        TextView error = (TextView) findViewById(R.id.error_text);
+                        error.setText(R.string.home_screen_error);
+                    }
+
                 }
             });
         } catch (Exception e) {
