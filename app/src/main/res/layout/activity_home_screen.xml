@@ -121,6 +121,7 @@
         android:textSize="10sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unField" />
+        app:layout_constraintTop_toBottomOf="@+id/unField"
+        tools:ignore="SmallSp" />
 
 </android.support.constraint.ConstraintLayout>
