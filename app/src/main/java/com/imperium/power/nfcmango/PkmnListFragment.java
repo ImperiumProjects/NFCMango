@@ -181,17 +181,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), CharmanderDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Bulbasaur")){
                     if(BulbasaurDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), BulbasaurDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Squirtle")){
@@ -199,17 +193,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), SquirtleDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Pikachu")){
                     if(PikachuDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), PikachuDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Pidgey")){
@@ -217,17 +205,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), PidgeyDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Onix")){
                     if(OnixDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), OnixDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Meowth")){
@@ -235,17 +217,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), MeowthDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Eevee")){
                     if(EeveeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), EeveeDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Abra")){
@@ -253,17 +229,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), AbraDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Jigglypuff")){
                     if(JigglypuffDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), JigglypuffDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Chansey")){
@@ -271,17 +241,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), ChanseyDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Slowpoke")){
                     if(SlowpokeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), SlowpokeDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Cubone")){
@@ -289,17 +253,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), CuboneDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Mr. Mime")){
                     if(MrMimeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), MrMimeDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Flareon")){
@@ -307,17 +265,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), FlareonDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Jolteon")){
                     if(JolteonDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), JolteonDetails.class);
                         startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(pkmnClicked.equals("Vaporeon")){
@@ -325,18 +277,15 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         intent = new Intent(v.getContext(), VaporeonDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
                 }
                 else if(pkmnClicked.equals("Mewtwo")){
                     if(MewtwoDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), MewtwoDetails.class);
                         startActivity(intent);
                     }
-                    else{
-                        Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-                    }
+                }
+                else{
+                    Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -351,17 +300,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), CharmanderDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Bulbasaur")){
             if(BulbasaurDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), BulbasaurDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Squirtle")){
@@ -369,17 +312,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), SquirtleDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Pikachu")){
             if(PikachuDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), PikachuDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Pidgey")){
@@ -387,17 +324,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), PidgeyDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Onix")){
             if(OnixDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), OnixDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Meowth")){
@@ -405,17 +336,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), MeowthDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Eevee")){
             if(EeveeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), EeveeDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Abra")){
@@ -423,17 +348,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), AbraDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Jigglypuff")){
             if(JigglypuffDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), JigglypuffDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Chansey")){
@@ -441,17 +360,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), ChanseyDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Slowpoke")){
             if(SlowpokeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), SlowpokeDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Cubone")){
@@ -459,17 +372,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), CuboneDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Mr. Mime")){
             if(MrMimeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), MrMimeDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Flareon")){
@@ -477,17 +384,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), FlareonDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Jolteon")){
             if(JolteonDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), JolteonDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
         else if(pkmnClicked.equals("Vaporeon")){
@@ -495,17 +396,11 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 intent = new Intent(v.getContext(), VaporeonDetails.class);
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
-            }
         }
         else if(pkmnClicked.equals("Mewtwo")){
             if(MewtwoDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), MewtwoDetails.class);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
             }
         }
     }
