@@ -3,6 +3,7 @@ package com.imperium.power.nfcmango;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,6 +25,9 @@ public class HomeScreen extends AppCompatActivity {
 
             ImageView pkball = (ImageView) findViewById(R.id.pokeballClick);
             final EditText usernameField = (EditText) findViewById(R.id.unField);
+
+            EditText password = (EditText) findViewById(R.id.pwField);
+            password.setTransformationMethod(new PasswordTransformationMethod());
 
             pkball.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
