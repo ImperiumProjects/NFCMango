@@ -25,21 +25,32 @@ public class HomeScreen extends AppCompatActivity {
 
             ImageView pkball = (ImageView) findViewById(R.id.pokeballClick);
             final EditText usernameField = (EditText) findViewById(R.id.unField);
+            final EditText password = (EditText) findViewById(R.id.pwField);
+            final TextView error = (TextView) findViewById(R.id.error_text);
 
-            EditText password = (EditText) findViewById(R.id.pwField);
             password.setTransformationMethod(new PasswordTransformationMethod());
 
             pkball.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    if(!(usernameField.getText().toString().equals(""))){
+                    if(!(usernameField.getText().toString().equals("")) && !(password.getText().toString().equals(""))){
                         username = usernameField.getText().toString();
+                        ///
+                        /// LDAP CONNECTION HERE
+                        ///
                         Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
                         startActivity(intent);
                         finish();
                     }
                     else{
-                        TextView error = (TextView) findViewById(R.id.error_text);
-                        error.setText(R.string.home_screen_error);
+                        if(usernameField.getText().toString().equals("")){
+                            error.setText(R.string.home_screen_username_error);
+                        }
+                        else if(password.getText().toString().equals("")){
+                            error.setText(R.string.home_screen_password_error);
+                        }
+                        else {
+                            error.setText(R.string.home_screen_error);
+                        }
                     }
 
                 }
