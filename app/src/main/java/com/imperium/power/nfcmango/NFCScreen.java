@@ -68,6 +68,9 @@ public class NFCScreen extends AppCompatActivity {
             outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
             outputStream.write(HomeScreen.username.getBytes());
             outputStream.close();
+
+            Log.d("USERNAME", HomeScreen.username);
+            Log.d("GAMETIME", chronoText);
         }
         catch (Exception e){
             e.printStackTrace();
