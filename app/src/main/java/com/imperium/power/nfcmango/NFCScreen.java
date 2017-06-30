@@ -36,7 +36,7 @@ public class NFCScreen extends AppCompatActivity {
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
-    int stoppedMilliseconds = 0;
+    int stoppedMilliseconds;
 
     FileOutputStream outputStream;
     Chronometer mChronometer;
