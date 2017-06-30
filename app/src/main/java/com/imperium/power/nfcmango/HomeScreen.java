@@ -94,9 +94,6 @@ public class HomeScreen extends AppCompatActivity {
             catch(Exception e){
                 e.printStackTrace();
             }
-            //Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
-            //startActivity(intent);
-            //finish();
         }
         else{
             if(usernameField.getText().toString().equals("")){
