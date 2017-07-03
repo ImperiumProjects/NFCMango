@@ -285,7 +285,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                     }
                 }
                 else{
-                    Toast.makeText(getActivity(), "You have not caught this Pkmn!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "You have not caught this EMBLmon!", Toast.LENGTH_LONG).show();
                 }
             }
         });

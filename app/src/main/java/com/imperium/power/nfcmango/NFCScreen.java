@@ -23,9 +23,11 @@ import android.widget.TextView;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class NFCScreen extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class NFCScreen extends AppCompatActivity {
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
-    int stoppedMilliseconds;
+    int stoppedMilliseconds = 0;
 
     FileOutputStream outputStream;
     Chronometer mChronometer;
@@ -76,10 +78,35 @@ public class NFCScreen extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        try{
+            FileInputStream inputStream = openFileInput(HomeScreen.filename);
+        }
+        catch(Exception e){
+
+        }
+
         mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
         mChronometer.start();
 
         handleIntent(getIntent());
+
+        if (PkmnListFragment.data.isEmpty()) {
+            //Create hash map to store strings + images
+            HashMap<String, String> map = new HashMap<String, String>();
+            //Creates new hash map for each pair
+            for (int i = 0; i < PkmnListFragment.blank_names.length; i++) {
+                map = new HashMap<String, String>();
+                map.put("Pkmn", PkmnListFragment.blank_names[i]);
+                map.put("Image", Integer.toString(PkmnListFragment.pokemon[i]));
+                //Stores each hash map in ArrayList
+                PkmnListFragment.data.add(map);
+            }
+        }
+        //KEYS IN MAP
+        String[] from = {"Pkmn", "Image"};
+        //IDS OF VIEWS
+        int[] to = {R.id.nameTxt, R.id.imageView1};
+
     }
 
     @Override

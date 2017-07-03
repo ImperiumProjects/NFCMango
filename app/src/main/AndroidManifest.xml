@@ -51,13 +51,7 @@
 
         <activity
             android:name=".CaughtList"
-            android:parentActivityName=".NFCScreen"
             android:screenOrientation="portrait">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NFCScreen" />
         </activity>
 
         <activity android:name=".PikachuDetails"
@@ -65,10 +59,6 @@
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CaughtList" />
         </activity>
 
         <activity android:name=".BulbasaurDetails"

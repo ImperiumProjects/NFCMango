@@ -53,6 +53,7 @@
         android:background="@drawable/edit_text_design"
         android:elevation="2dp"
         android:ems="10"
+        android:inputType="textNoSuggestions|textPassword"
         android:hint="@string/password_field"
         android:maxLines="1"
         android:selectAllOnFocus="false"
