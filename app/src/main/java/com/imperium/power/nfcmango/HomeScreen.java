@@ -157,9 +157,6 @@ public class HomeScreen extends AppCompatActivity {
                         catch(Exception e){
                             e.printStackTrace();
                         }
-
-                        startActivity(intent);
-                        finish();
                     }
 
                     @Override
