@@ -22,6 +22,8 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
@@ -40,11 +42,14 @@ public class HomeScreen extends AppCompatActivity {
 
     static String username;
     static String password;
-    static String filename = "timerFile";
+    static String timerFilename = "timerFile";
+    static String usernameFilename = "usernameFile";
     private NfcAdapter mNfcAdapter;
     KeyStore keyStore;
     static String currentDateandTime;
     static String timerString;
+    static final int READ_BLOCK_SIZE = 100;
+    String s;
 
     /**
      * Creates view and adds setOnClickListener for pkball image
@@ -55,6 +60,8 @@ public class HomeScreen extends AppCompatActivity {
         try {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_home_screen);
+
+            Log.d("usernameFromFile", s);
 
             final EditText passwordField = (EditText) findViewById(R.id.pwField);
 
@@ -107,6 +114,33 @@ public class HomeScreen extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        try{
+            FileInputStream fileIn = openFileInput(usernameFilename);
+            InputStreamReader InputRead = new InputStreamReader(fileIn);
+
+            char[] inputBuffer = new char[READ_BLOCK_SIZE];
+            s="";
+            int charRead;
+
+            while((charRead = InputRead.read(inputBuffer))> 0){
+                String readString = String.copyValueOf(inputBuffer, 0, charRead);
+                s += readString;
+            }
+            InputRead.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        try {
+            if (s.length() > 0) {
+                Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        }
+        catch(NullPointerException e){
+            e.printStackTrace();
+        }
     }
 
     public void tapPkBall(View view){
@@ -140,13 +174,31 @@ public class HomeScreen extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
 
                         try{
-                            FileOutputStream outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                            FileOutputStream outputStream = openFileOutput(timerFilename, Context.MODE_PRIVATE);
                             outputStream.write(timer.getBytes());
                             outputStream.close();
                             String str = new String(responseBody, "UTF-8");
                             Log.d("successResponse", "Success: " + statusCode);
                             Log.d("successBody", "Body :" + str);
                             if(str.equals("Successsuccess")){
+                                try{
+                                    Log.d("userShouldWrite", username);
+                                    FileOutputStream fileout = openFileOutput(usernameFilename, MODE_PRIVATE);
+                                    OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
+                                    outputWriter.write(username);
+                                    outputWriter.close();
+                                }
+                                catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                                finish();
+                            }
+                            else if(str.matches(".*\\SuccessDuplicate\\b.*")){
+                                FileOutputStream fileout = openFileOutput(usernameFilename, MODE_PRIVATE);
+                                OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
+                                outputWriter.write(username);
+                                outputWriter.close();
                                 startActivity(intent);
                                 finish();
                             }
