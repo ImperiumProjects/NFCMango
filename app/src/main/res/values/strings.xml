@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EMBL Mango</string>
+    <string name="app_name">EMBLmon Go</string>
     <string name="home_screen_button">Start!</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_button">VIEW EMBLDEX</string>
