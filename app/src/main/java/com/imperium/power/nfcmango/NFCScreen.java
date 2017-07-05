@@ -23,21 +23,30 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.TimeZone;
 
 public class NFCScreen extends AppCompatActivity {
 
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
+    static String timerFilename = "timerFile";
+    static long elapsedMs;
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
-    int stoppedMilliseconds = 0;
+    int stoppedMilliseconds;
+    long currentTime;
     String s;
+    String t;
 
     Chronometer mChronometer;
 
@@ -53,21 +62,38 @@ public class NFCScreen extends AppCompatActivity {
             username.setText(HomeScreen.username);
         }
         else{
-            try{
+            try {
                 FileInputStream fileIn = openFileInput(HomeScreen.usernameFilename);
                 InputStreamReader InputRead = new InputStreamReader(fileIn);
 
                 char[] inputBuffer = new char[HomeScreen.READ_BLOCK_SIZE];
-                s="";
+                s = "";
                 int charRead;
 
-                while((charRead = InputRead.read(inputBuffer))> 0){
+                while ((charRead = InputRead.read(inputBuffer)) > 0) {
                     String readString = String.copyValueOf(inputBuffer, 0, charRead);
                     s += readString;
                 }
                 InputRead.close();
+            } catch(Exception e) {
+                e.printStackTrace();
             }
-            catch(Exception e){
+                /////////////////
+                /////////////////
+            try{
+                FileInputStream fileIn = openFileInput(timerFilename);
+                InputStreamReader InputRead = new InputStreamReader(fileIn);
+
+                char[] timeInputBuffer = new char[HomeScreen.READ_BLOCK_SIZE];
+                t="";
+                int timeCharRead;
+
+                while((timeCharRead = InputRead.read(timeInputBuffer))> 0){
+                    String readString = String.copyValueOf(timeInputBuffer, 0, timeCharRead);
+                    t += readString;
+                }
+                InputRead.close();
+            } catch(Exception e){
                 e.printStackTrace();
             }
             username.setText(s);
@@ -88,9 +114,31 @@ public class NFCScreen extends AppCompatActivity {
                     + Integer.parseInt(array[2]) * 1000;
         }
 
-        mChronometer.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
-        mChronometer.start();
+        if(t == null) {
+            try {
+                mChronometer.setBase(SystemClock.elapsedRealtime());
+                mChronometer.start();
+                FileOutputStream fileout = openFileOutput(timerFilename, MODE_PRIVATE);
+                OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
+                outputWriter.write(Long.toString(SystemClock.elapsedRealtime()));
+                outputWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            long currentTime = SystemClock.elapsedRealtime() - Long.parseLong(t);
+            int seconds = (int) (currentTime / 1000) % 60;
+            int minutes = (int) ((currentTime / (1000 * 60)) % 60);
+            int hours = (int) ((currentTime / (1000 * 60 * 60)) % 24);
 
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+            mChronometer.setBase(currentTime);
+            mChronometer.start();
+            mChronometer.setText(sdf.format(new Date(currentTime)));
+        }
         handleIntent(getIntent());
 
         if (PkmnListFragment.data.isEmpty()) {
