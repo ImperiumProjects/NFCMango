@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/pokeball_all_green"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name=".BroadcastService"/>
 
         <activity android:name=".HomeScreen"
             android:launchMode="singleTask"

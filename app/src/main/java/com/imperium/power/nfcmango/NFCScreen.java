@@ -2,6 +2,8 @@ package com.imperium.power.nfcmango;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
@@ -12,7 +14,6 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -23,30 +24,22 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.TimeZone;
 
 public class NFCScreen extends AppCompatActivity {
 
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
-    static String timerFilename = "timerFile";
-    static long elapsedMs;
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
+    public static boolean timerStarted;
     int stoppedMilliseconds;
-    long currentTime;
     String s;
-    String t;
 
     Chronometer mChronometer;
 
@@ -60,8 +53,11 @@ public class NFCScreen extends AppCompatActivity {
 
         if(HomeScreen.username != null){
             username.setText(HomeScreen.username);
+            startService(new Intent(this, BroadcastService.class));
+            //timerStarted = true;
         }
         else{
+            timerStarted = true;
             try {
                 FileInputStream fileIn = openFileInput(HomeScreen.usernameFilename);
                 InputStreamReader InputRead = new InputStreamReader(fileIn);
@@ -76,24 +72,6 @@ public class NFCScreen extends AppCompatActivity {
                 }
                 InputRead.close();
             } catch(Exception e) {
-                e.printStackTrace();
-            }
-                /////////////////
-                /////////////////
-            try{
-                FileInputStream fileIn = openFileInput(timerFilename);
-                InputStreamReader InputRead = new InputStreamReader(fileIn);
-
-                char[] timeInputBuffer = new char[HomeScreen.READ_BLOCK_SIZE];
-                t="";
-                int timeCharRead;
-
-                while((timeCharRead = InputRead.read(timeInputBuffer))> 0){
-                    String readString = String.copyValueOf(timeInputBuffer, 0, timeCharRead);
-                    t += readString;
-                }
-                InputRead.close();
-            } catch(Exception e){
                 e.printStackTrace();
             }
             username.setText(s);
@@ -114,31 +92,6 @@ public class NFCScreen extends AppCompatActivity {
                     + Integer.parseInt(array[2]) * 1000;
         }
 
-        if(t == null) {
-            try {
-                mChronometer.setBase(SystemClock.elapsedRealtime());
-                mChronometer.start();
-                FileOutputStream fileout = openFileOutput(timerFilename, MODE_PRIVATE);
-                OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
-                outputWriter.write(Long.toString(SystemClock.elapsedRealtime()));
-                outputWriter.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        else{
-            long currentTime = SystemClock.elapsedRealtime() - Long.parseLong(t);
-            int seconds = (int) (currentTime / 1000) % 60;
-            int minutes = (int) ((currentTime / (1000 * 60)) % 60);
-            int hours = (int) ((currentTime / (1000 * 60 * 60)) % 24);
-
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-
-            mChronometer.setBase(currentTime);
-            mChronometer.start();
-            mChronometer.setText(sdf.format(new Date(currentTime)));
-        }
         handleIntent(getIntent());
 
         if (PkmnListFragment.data.isEmpty()) {
@@ -157,8 +110,15 @@ public class NFCScreen extends AppCompatActivity {
         String[] from = {"Pkmn", "Image"};
         //IDS OF VIEWS
         int[] to = {R.id.nameTxt, R.id.imageView1};
-
     }
+
+    private BroadcastReceiver br = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateGUI(intent);
+            Log.d("memelol", "received something");
+        }
+    };
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -191,6 +151,7 @@ public class NFCScreen extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(br, new IntentFilter(BroadcastService.COUNTDOWN_BR));
         setupForegroundDispatch(this, mNfcAdapter);
     }
 
@@ -198,6 +159,25 @@ public class NFCScreen extends AppCompatActivity {
     protected void onPause() {
         stopForegroundDispatch(this, mNfcAdapter);
         super.onPause();
+        unregisterReceiver(br);
+    }
+
+    @Override
+    public void onStop(){
+        try{
+            unregisterReceiver(br);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        super.onStop();
+    }
+
+    private void updateGUI(Intent intent){
+        if(intent.getExtras() != null){
+            int millisUntilFinished = intent.getIntExtra("countdown", 0);
+            mChronometer.setText(Integer.toString(millisUntilFinished));
+            Log.d("meme", Integer.toString(millisUntilFinished));
+        }
     }
 
     /**
