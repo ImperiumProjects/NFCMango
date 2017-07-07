@@ -153,7 +153,7 @@ public class HomeScreen extends AppCompatActivity {
             username = usernameField.getText().toString();
             password = passwordField.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            sdf.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
             currentDateandTime = sdf.format(new Date());
 
             SimpleDateFormat timerTime = new SimpleDateFormat("HH:mm:ss");
@@ -168,6 +168,7 @@ public class HomeScreen extends AppCompatActivity {
                 params.put("name", username);
                 params.put("password", password);
                 params.put("start_time", currentDateandTime);
+                params.put("guest", "false");
                 client.post("https://labday01.embl.de/login.php", params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

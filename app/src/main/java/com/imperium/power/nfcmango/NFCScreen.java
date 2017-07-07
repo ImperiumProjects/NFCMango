@@ -55,17 +55,19 @@ public class NFCScreen extends AppCompatActivity {
     public static final String TAG = "NfcDemo";
     public static boolean timerStarted;
     String s;
+    static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcscreen);
 
-        TextView username = (TextView) findViewById(R.id.usernameFieldNFC);
+        TextView usernameField = (TextView) findViewById(R.id.usernameFieldNFC);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
 
         if(HomeScreen.username != null){
-            username.setText(HomeScreen.username);
+            usernameField.setText(HomeScreen.username);
+            username = HomeScreen.username;
         }
         else{
             timerStarted = true;
@@ -85,8 +87,8 @@ public class NFCScreen extends AppCompatActivity {
             } catch(Exception e) {
                 e.printStackTrace();
             }
-            username.setText(s);
-            Log.d("lolwheres", s);
+            usernameField.setText(s);
+            username = s;
         }
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -347,8 +349,8 @@ public class NFCScreen extends AppCompatActivity {
 
         private Notification createNotification(){
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                    .setContentTitle("Timer Running")
-                    .setContentText("Tap to return to the game!")
+                    .setContentTitle("EMBLmon Go")
+                    .setContentText("Still more to catch! Tap to return!")
                     .setSmallIcon(R.mipmap.pokeball_all_green);
 
             Intent resultIntent = new Intent(this, NFCScreen.class);
