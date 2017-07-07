@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/pokeball_all_green"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".BroadcastService"/>
+        <service android:name=".NFCScreen$TimerService" android:exported="false"/>
 
         <activity android:name=".HomeScreen"
             android:launchMode="singleTask"

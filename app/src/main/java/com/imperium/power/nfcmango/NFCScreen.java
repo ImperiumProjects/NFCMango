@@ -1,23 +1,31 @@
 package com.imperium.power.nfcmango;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
+import android.content.ServiceConnection;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
+import android.os.Binder;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -26,6 +34,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -34,27 +43,29 @@ public class NFCScreen extends AppCompatActivity {
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
+    private TimerService timerService;
+    private boolean serviceBound;
+    private TextView timerTextView;
+
+    private final Handler mUpdateTimeHandler = new UIUpdateHandler(this);
+
+    private final static int MSG_UPDATE_TIME = 0;
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
     public static boolean timerStarted;
-    int stoppedMilliseconds;
     String s;
-
-    Chronometer mChronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfcscreen);
 
-        mChronometer = (Chronometer) findViewById(R.id.chronometer2);
         TextView username = (TextView) findViewById(R.id.usernameFieldNFC);
+        timerTextView = (TextView) findViewById(R.id.timerTextView);
 
         if(HomeScreen.username != null){
             username.setText(HomeScreen.username);
-            startService(new Intent(this, BroadcastService.class));
-            //timerStarted = true;
         }
         else{
             timerStarted = true;
@@ -80,18 +91,11 @@ public class NFCScreen extends AppCompatActivity {
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
-        String chronoText = mChronometer.getText().toString();
-        String array[] = chronoText.split(":");
-        if(array.length == 2){
-            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000
-                    + Integer.parseInt(array[1]) * 1000;
+        if(serviceBound && !timerService.isTimerRunning()){
+            if(Log.isLoggable(LOG_TAG, Log.VERBOSE)){
+                Log.v(LOG_TAG, "Starting Timer");
+            }
         }
-        else if(array.length == 3){
-            stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000
-                    + Integer.parseInt(array[1]) * 60 * 1000
-                    + Integer.parseInt(array[2]) * 1000;
-        }
-
         handleIntent(getIntent());
 
         if (PkmnListFragment.data.isEmpty()) {
@@ -112,30 +116,30 @@ public class NFCScreen extends AppCompatActivity {
         int[] to = {R.id.nameTxt, R.id.imageView1};
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus){
+        if(hasFocus){
+            timerService.startTimer();
+            updateUIStartRun();
+        }
+    }
+
     private BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            updateGUI(intent);
             Log.d("memelol", "received something");
         }
     };
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        // Save UI state changes to the savedInstanceState.
-        // This bundle will be passed to onCreate if the process is
-        // killed and restarted.
-        savedInstanceState.putInt("stoppedTime", stoppedMilliseconds);
-        // etc.
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        // Restore UI state from the savedInstanceState.
-        // This bundle has also been passed to onCreate.
-        stoppedMilliseconds = savedInstanceState.getInt("stoppedTime");
+    protected void onStart(){
+        super.onStart();
+        if(Log.isLoggable(LOG_TAG, Log.VERBOSE)){
+            Log.v(LOG_TAG, "Starting and binding service");
+        }
+        Intent i = new Intent(this, TimerService.class);
+        startService(i);
+        bindService(i, mConnection, 0);
     }
 
     @Override
@@ -151,7 +155,6 @@ public class NFCScreen extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(br, new IntentFilter(BroadcastService.COUNTDOWN_BR));
         setupForegroundDispatch(this, mNfcAdapter);
     }
 
@@ -159,24 +162,202 @@ public class NFCScreen extends AppCompatActivity {
     protected void onPause() {
         stopForegroundDispatch(this, mNfcAdapter);
         super.onPause();
-        unregisterReceiver(br);
     }
 
     @Override
     public void onStop(){
-        try{
-            unregisterReceiver(br);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
         super.onStop();
+        updateUIStopRun();
+        if(serviceBound){
+            //If a timer is active, foreground the service, otherwise kill the service
+            if(timerService.isTimerRunning()){
+                timerService.foreground();
+            }
+            else{
+                stopService(new Intent(this, TimerService.class));
+            }
+            //Unbind the service
+            unbindService(mConnection);
+            serviceBound = false;
+        }
     }
 
-    private void updateGUI(Intent intent){
-        if(intent.getExtras() != null){
-            int millisUntilFinished = intent.getIntExtra("countdown", 0);
-            mChronometer.setText(Integer.toString(millisUntilFinished));
-            Log.d("meme", Integer.toString(millisUntilFinished));
+    /**
+     * Updates the UI when a run starts
+     */
+    private void updateUIStartRun(){
+        mUpdateTimeHandler.sendEmptyMessage(MSG_UPDATE_TIME);
+    }
+
+    /**
+     * Updates the UI when a run stops
+     */
+    private void updateUIStopRun(){
+        mUpdateTimeHandler.removeMessages(MSG_UPDATE_TIME);
+    }
+
+    private void updateUITimer(){
+        if(serviceBound){
+            long ms = timerService.elapsedTime() * 1000;
+            int seconds = (int) (ms / 1000) % 60;
+            int minutes = (int) ((ms / (1000*60)) % 60);
+            int hours = (int) ((ms / (1000*60*60)) % 24);
+            timerTextView.setText(""+hours+":"+minutes+":"+seconds);
+        }
+    }
+
+    private ServiceConnection mConnection = new ServiceConnection(){
+
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder service){
+            if(Log.isLoggable(LOG_TAG, Log.VERBOSE)){
+                Log.v(LOG_TAG, "Service Bound");
+            }
+            TimerService.RunServiceBinder binder = (TimerService.RunServiceBinder) service;
+            timerService = binder.getService();
+            serviceBound = true;
+            // Ensure the service is not in the foreground when bound
+            timerService.background();
+            // Update the UI if the service is already running the timer
+            if(timerService.isTimerRunning()){
+                updateUIStartRun();
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name){
+            if (Log.isLoggable(LOG_TAG, Log.VERBOSE)){
+                Log.v(LOG_TAG, "Service disconnect");
+            }
+            serviceBound = false;
+        }
+    };
+
+    static class UIUpdateHandler extends Handler{
+
+        private final static int UPDATE_RATE_MS = 1000;
+        private final WeakReference<NFCScreen> activity;
+
+        UIUpdateHandler(NFCScreen activity){
+            this.activity = new WeakReference<NFCScreen>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message message){
+            if(MSG_UPDATE_TIME == message.what){
+                if(Log.isLoggable(LOG_TAG, Log.VERBOSE)){
+                    Log.v(LOG_TAG, "Update time");
+                }
+                activity.get().updateUITimer();
+                sendEmptyMessageDelayed(MSG_UPDATE_TIME, UPDATE_RATE_MS);
+            }
+        }
+    }
+
+    public static class TimerService extends Service{
+
+        private static final String TAG = TimerService.class.getSimpleName();
+
+        private long startTime, endTime;
+
+        private boolean isTimerRunning;
+
+        private static final int NOTIFICATION_ID = 1;
+
+        private final IBinder serviceBinder = new RunServiceBinder();
+
+        public class RunServiceBinder extends Binder{
+            TimerService getService(){
+                return TimerService.this;
+            }
+        }
+
+        @Override
+        public void onCreate(){
+            if(Log.isLoggable(TAG, Log.VERBOSE)){
+                Log.v(TAG, "Creating service");
+            }
+            startTime = 0;
+            endTime = 0;
+            isTimerRunning = false;
+        }
+
+        @Override
+        public int onStartCommand(Intent intent, int flags, int startId){
+            if(Log.isLoggable(TAG, Log.VERBOSE)){
+                Log.v(TAG, "Starting service");
+            }
+            return Service.START_STICKY;
+        }
+
+        @Override
+        public IBinder onBind(Intent intent){
+            if(Log.isLoggable(TAG, Log.VERBOSE)){
+                Log.v(TAG, "Binding service");
+            }
+            return serviceBinder;
+        }
+
+        @Override
+        public void onDestroy(){
+            super.onDestroy();
+            if(Log.isLoggable(TAG, Log.VERBOSE)){
+                Log.v(TAG, "Destroying service");
+            }
+        }
+
+        public void startTimer(){
+            if(!isTimerRunning){
+                startTime = System.currentTimeMillis();
+                isTimerRunning = true;
+            }
+            else{
+                Log.e(TAG, "startTimer request for an already running timer");
+            }
+        }
+
+        public void stopTimer(){
+            if(isTimerRunning){
+                endTime = System.currentTimeMillis();
+                isTimerRunning = false;
+            }
+            else{
+                Log.e(TAG, "stopTimer request for a timer that isn't running");
+            }
+        }
+
+        public boolean isTimerRunning(){
+            return isTimerRunning;
+        }
+
+        public long elapsedTime(){
+            //If timer is running, end time will be zero
+            return endTime > startTime ?
+                    (endTime - startTime) / 1000 :
+                    (System.currentTimeMillis() - startTime) / 1000;
+        }
+
+        public void foreground(){
+            startForeground(NOTIFICATION_ID, createNotification());
+        }
+
+        public void background(){
+            stopForeground(true);
+        }
+
+        private Notification createNotification(){
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                    .setContentTitle("Timer Running")
+                    .setContentText("Tap to return to the game!")
+                    .setSmallIcon(R.mipmap.pokeball_all_green);
+
+            Intent resultIntent = new Intent(this, NFCScreen.class);
+            PendingIntent resultPendingIntent =
+                    PendingIntent.getActivity(this, 0, resultIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(resultPendingIntent);
+
+            return builder.build();
         }
     }
 
