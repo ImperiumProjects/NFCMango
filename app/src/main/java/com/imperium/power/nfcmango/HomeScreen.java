@@ -2,7 +2,6 @@ package com.imperium.power.nfcmango;
 
 import android.app.Activity;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
@@ -42,7 +41,6 @@ public class HomeScreen extends AppCompatActivity {
 
     static String username;
     static String password;
-    static String timerFilename = "timerFile";
     static String usernameFilename = "usernameFile";
     private NfcAdapter mNfcAdapter;
     KeyStore keyStore;
@@ -143,7 +141,7 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
-    public void tapPkBall(View view){
+    public void tapEmblBall(View view){
 
         final EditText usernameField = (EditText) findViewById(R.id.unField);
         final EditText passwordField = (EditText) findViewById(R.id.pwField);
@@ -175,9 +173,6 @@ public class HomeScreen extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
 
                         try{
-                            FileOutputStream outputStream = openFileOutput(timerFilename, Context.MODE_PRIVATE);
-                            outputStream.write(timer.getBytes());
-                            outputStream.close();
                             String str = new String(responseBody, "UTF-8");
                             Log.d("successResponse", "Success: " + statusCode);
                             Log.d("successBody", "Body :" + str);
@@ -203,8 +198,101 @@ public class HomeScreen extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             }
+                            else if(str.matches(".*\\SError connecting\\b.*")){
+                                error.setText("Please make sure you're connected to an EMBL Network!");
+                            }
+                            else if(str.matches(".*\\SUsername or Password\\b.*")){
+                                error.setText("Error logging in, please check your Username and Password!");
+                            }
+                            else if(str.matches(".*\\SLogin not possible\\b.*")){
+                                error.setText("LDAP seems to be down, please try again!");
+                            }
                             else{
-                                error.setText("There was an error logging in, please check your username and password");
+                                error.setText("Error logging in, please check your Username and Password!");
+                            }
+                        }
+                        catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.d("codeResponse", "Error Code: " + statusCode);
+                    }
+                });
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            if(usernameField.getText().toString().equals("")){
+                error.setText(R.string.home_screen_username_error);
+            }
+            else if(passwordField.getText().toString().equals("")){
+                error.setText(R.string.home_screen_password_error);
+            }
+            else {
+                error.setText(R.string.home_screen_error);
+            }
+        }
+    }
+
+    public void tapGuestBall(View view){
+
+        final EditText usernameField = (EditText) findViewById(R.id.unField);
+        final EditText passwordField = (EditText) findViewById(R.id.pwField);
+        final TextView error = (TextView) findViewById(R.id.error_text);
+
+        if(!(usernameField.getText().toString().equals("")) && !(passwordField.getText().toString().equals(""))){
+            username = usernameField.getText().toString();
+            password = passwordField.getText().toString();
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
+            currentDateandTime = sdf.format(new Date());
+
+            try {
+                AsyncHttpClient client = new AsyncHttpClient();
+                MyCustomSSLFactory socketFactory = new MyCustomSSLFactory(keyStore);
+                client.setSSLSocketFactory(socketFactory);
+                RequestParams params = new RequestParams();
+                params.put("name", username);
+                params.put("password", password);
+                params.put("start_time", currentDateandTime);
+                params.put("guest", "true");
+                client.post("https://labday01.embl.de/login.php", params, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Intent intent = new Intent(getApplicationContext(), NFCScreen.class);
+
+                        try{
+                            String str = new String(responseBody, "UTF-8");
+                            Log.d("successResponse", "Success: " + statusCode);
+                            Log.d("successBody", "Body :" + str);
+                            if(str.equals("Successsuccess")){
+                                try{
+                                    Log.d("userShouldWrite", username);
+                                    FileOutputStream fileout = openFileOutput(usernameFilename, MODE_PRIVATE);
+                                    OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
+                                    outputWriter.write(username);
+                                    outputWriter.close();
+                                }
+                                catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                                finish();
+                            }
+                            else if(str.matches(".*\\SName is taken\\b.*")){
+                                error.setText("Username already taken, please choose a different name!");
+                            }
+                            else if(str.matches(".*\\SPassword incorrect\\b.*")){
+                                error.setText("Incorrect Guest account Password!");
+                            }
+                            else{
+                                error.setText("There was an error logging in, please check your Username and Password!");
                             }
                         }
                         catch(Exception e){

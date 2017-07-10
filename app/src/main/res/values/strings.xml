@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">EMBLmon Go</string>
-    <string name="home_screen_button">Start!</string>
+    <string name="home_screen_button">EMBL Heidelberg</string>
+    <string name="home_screen_button_2">Guest</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_button">VIEW EMBLDEX</string>
     <string name="caught_list_header">Caught EMBLmon:</string>
@@ -77,8 +78,8 @@
     <string name="forest_background_image_blurred">forest background image blurred</string>
     <string name="embl_style_pokeball">EMBL Style Pokeball</string>
     <string name="pokemon_style_labday_logo">Pokemon Style LabDay logo</string>
-    <string name="nfcscreen_instructions">Capture all the EMBLmon in the ATC \n Scan the QR code or tap the NFC tag \n Return to the ITS booth to win prizes \n Fastest time wins a special prize! </string>
-    <string name="home_screen_instructions">Please log in with your EMBL credentials</string>
+    <string name="nfcscreen_instructions">Find and capture all of the EMBLmon posters around the ATC \n Return to the IT Services booth to claim your prize \n The fastest time will win a grand prize, so get catching! </string>
+    <string name="home_screen_instructions">Please enter your Username and Password</string>
     <string name="nfc_screen_username">Username</string>
     <string name="labday_logo_nfc_screen">labday_logo</string>
 </resources>

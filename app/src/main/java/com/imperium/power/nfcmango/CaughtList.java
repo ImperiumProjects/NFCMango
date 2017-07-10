@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -23,28 +26,17 @@ public class CaughtList extends AppCompatActivity {
 
     static int numberCaught = 0;
     TextView mTextView;
-    static int[] pkmnArray = {964,
-            823,
-            728,
-            38,
-            741,
-            581,
-            562,
-            664,
-            82,
-            481,
-            319,
-            970,
-            888,
-            161,
-            457,
-            905,
-            225,
-            961};
+    static int[] pkmnArray = {964, 823, 728,
+            38, 741, 581,
+            562, 664, 82,
+            481, 319, 970,
+            888, 161, 457,
+            905, 225, 961};
     static String caughtPkmn;
     static KeyStore keyStore;
     String s;
     static String username;
+    static String currentDateandTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +100,7 @@ public class CaughtList extends AppCompatActivity {
         PkmnListFragment.updateListFragment(caughtPkmn);
 
         try {
+            // Update number of Pokemon caught
             AsyncHttpClient client = new AsyncHttpClient();
             MyCustomSSLFactory socketFactory = new MyCustomSSLFactory(keyStore);
             client.setSSLSocketFactory(socketFactory);
@@ -145,9 +138,49 @@ public class CaughtList extends AppCompatActivity {
             e.printStackTrace();
         }
         if(numberCaught == 18){
-            //
-            // Add HTTP POST code to finish timer
-            //
+            // Finish the timer
+            try {
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                sdf.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
+                currentDateandTime = sdf.format(new Date());
+
+                AsyncHttpClient client = new AsyncHttpClient();
+                MyCustomSSLFactory socketFactory = new MyCustomSSLFactory(keyStore);
+                client.setSSLSocketFactory(socketFactory);
+                RequestParams params = new RequestParams();
+                params.put("name", NFCScreen.username);
+                params.put("end_time", currentDateandTime);
+                client.post("https://labday01.embl.de/finish.php", params, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        try {
+                            String str = new String(responseBody, "UTF-8");
+                            Log.d("successResponse", str);
+                            if (str.equals("success")) {
+                                try {
+                                    Log.d("successfulUpdate", "Successfully finished timer");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            } else if (str.matches(".*\\SuccessDuplicate\\b.*")) {
+                                Log.d("unsuccessfulUpdate", "Something went wrong (DUPLICATE)");
+                            } else {
+                                Log.d("veryUnsuccessfulUpdate", "SOMETHING REALLY WENT WRONG");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.d("codeResponse", "Error Code: " + statusCode);
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
