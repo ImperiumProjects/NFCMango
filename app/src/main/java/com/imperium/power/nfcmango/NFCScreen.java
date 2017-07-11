@@ -44,7 +44,7 @@ public class NFCScreen extends AppCompatActivity {
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     private NfcAdapter mNfcAdapter;
     private TimerService timerService;
-    private boolean serviceBound;
+    public static boolean serviceBound;
     private TextView timerTextView;
 
     private final Handler mUpdateTimeHandler = new UIUpdateHandler(this);
@@ -204,7 +204,12 @@ public class NFCScreen extends AppCompatActivity {
             int seconds = (int) (ms / 1000) % 60;
             int minutes = (int) ((ms / (1000*60)) % 60);
             int hours = (int) ((ms / (1000*60*60)) % 24);
-            timerTextView.setText(""+hours+":"+minutes+":"+seconds);
+            timerTextView.setText("" + hours + ":" + minutes + ":" + seconds);
+            TextView finished = (TextView) findViewById(R.id.finishedTextView);
+            if(CaughtList.numberCaught == 18){
+                timerTextView.setVisibility(View.GONE);
+                finished.setText("Return to the ITS Booth!");
+            }
         }
     }
 
@@ -264,7 +269,7 @@ public class NFCScreen extends AppCompatActivity {
 
         private boolean isTimerRunning;
 
-        private static final int NOTIFICATION_ID = 1;
+        static final int NOTIFICATION_ID = 1;
 
         private final IBinder serviceBinder = new RunServiceBinder();
 
@@ -340,7 +345,9 @@ public class NFCScreen extends AppCompatActivity {
         }
 
         public void foreground(){
-            startForeground(NOTIFICATION_ID, createNotification());
+            if(CaughtList.numberCaught != 18) {
+                startForeground(NOTIFICATION_ID, createNotification());
+            }
         }
 
         public void background(){

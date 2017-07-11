@@ -1,5 +1,7 @@
 package com.imperium.power.nfcmango;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,6 +39,7 @@ public class CaughtList extends AppCompatActivity {
     String s;
     static String username;
     static String currentDateandTime;
+    static NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class CaughtList extends AppCompatActivity {
         setContentView(R.layout.activity_caught_list);
         mTextView = (TextView)findViewById(R.id.caught_list_banner);
         mTextView.setText("You have caught " + numberCaught + " out of 18 EMBLmon");
+        notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 
         try{
             FileInputStream fileIn = openFileInput(HomeScreen.usernameFilename);
@@ -138,7 +142,6 @@ public class CaughtList extends AppCompatActivity {
             e.printStackTrace();
         }
         if(numberCaught == 18){
-            // Finish the timer
             try {
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
