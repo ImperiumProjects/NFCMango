@@ -91,7 +91,12 @@ public class NFCScreen extends AppCompatActivity {
             username = s;
         }
 
-        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        try {
+            mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
 
         if(serviceBound && !timerService.isTimerRunning()){
             if(Log.isLoggable(LOG_TAG, Log.VERBOSE)){
