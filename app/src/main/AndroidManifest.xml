@@ -4,9 +4,9 @@
 
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,28 +15,31 @@
         android:roundIcon="@mipmap/pokeball_all_green"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".NFCScreen$TimerService" android:exported="false"/>
+        <service
+            android:name=".NFCScreen$TimerService"
+            android:exported="false" />
 
-        <activity android:name=".HomeScreen"
+        <activity
+            android:name=".HomeScreen"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".NFCScreen"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
             </intent-filter>
@@ -46,26 +49,27 @@
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
-
         <activity
             android:name=".BarcodeCaptureActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".CaughtList"
             android:screenOrientation="portrait">
         </activity>
-
-        <activity android:name=".PikachuDetails"
-            android:label="Pikachu"
+        <activity
+            android:name=".PikachuDetails"
+            android:label="Pikablaz"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
-
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".BulbasaurDetails"
-            android:label="Bulbasaur"
+        <activity
+            android:name=".BulbasaurDetails"
+            android:label="Matthiasaur"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -74,9 +78,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".MewtwoDetails"
-            android:label="Mewtwo"
+        <activity
+            android:name=".MewtwoDetails"
+            android:label="Mewpert"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -85,9 +89,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".SquirtleDetails"
-            android:label="Squirtle"
+        <activity
+            android:name=".SquirtleDetails"
+            android:label="Squidan"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -96,9 +100,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".MrMimeDetails"
-            android:label="Mr Mime"
+        <activity
+            android:name=".MrMimeDetails"
+            android:label="Mr Malain"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -107,9 +111,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".MeowthDetails"
-            android:label="Meowth"
+        <activity
+            android:name=".MeowthDetails"
+            android:label="Meowssi"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -118,9 +122,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".PidgeyDetails"
-            android:label="Pidgey"
+        <activity
+            android:name=".PidgeyDetails"
+            android:label="Pidguca"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -129,9 +133,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".FlareonDetails"
-            android:label="Flareon"
+        <activity
+            android:name=".FlareonDetails"
+            android:label="Flarlos"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -140,9 +144,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".ChanseyDetails"
-            android:label="Chansey"
+        <activity
+            android:name=".ChanseyDetails"
+            android:label="Chaso"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -151,9 +155,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".EeveeDetails"
-            android:label="Eevee"
+        <activity
+            android:name=".EeveeDetails"
+            android:label="Lilevee"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -162,9 +166,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".JolteonDetails"
-            android:label="Jolteon"
+        <activity
+            android:name=".JolteonDetails"
+            android:label="Joltelo"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -173,9 +177,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".JigglypuffDetails"
-            android:label="Jigglypuff"
+        <activity
+            android:name=".JigglypuffDetails"
+            android:label="Jigglywill"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -184,9 +188,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".OnixDetails"
-            android:label="Onix"
+        <activity
+            android:name=".OnixDetails"
+            android:label="Jurix"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -195,9 +199,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".SlowpokeDetails"
-            android:label="Slowpoke"
+        <activity
+            android:name=".SlowpokeDetails"
+            android:label="Joaqpoke"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -206,9 +210,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".CuboneDetails"
-            android:label="Cubone"
+        <activity
+            android:name=".CuboneDetails"
+            android:label="Curich"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -217,9 +221,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".VaporeonDetails"
-            android:label="Vaporeon"
+        <activity
+            android:name=".VaporeonDetails"
+            android:label="Vapagustin"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -228,9 +232,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".AbraDetails"
-            android:label="Abra"
+        <activity
+            android:name=".AbraDetails"
+            android:label="Thomabra"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -239,9 +243,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
-        <activity android:name=".CharmanderDetails"
-            android:label="Charmander"
+        <activity
+            android:name=".CharmanderDetails"
+            android:label="Charmichael"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -250,7 +254,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CaughtList" />
         </activity>
-
+        <activity android:name=".LeaderboardView"
+            android:label="Leaderboard"
+            android:parentActivityName=".NFCScreen"
+            android:screenOrientation="portrait">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NFCScreen" />
+        </activity>
     </application>
 
 </manifest>

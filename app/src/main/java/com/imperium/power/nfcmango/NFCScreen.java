@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
@@ -131,13 +129,6 @@ public class NFCScreen extends AppCompatActivity {
         }
     }
 
-    private BroadcastReceiver br = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d("memelol", "received something");
-        }
-    };
-
     @Override
     protected void onStart(){
         super.onStart();
@@ -213,7 +204,7 @@ public class NFCScreen extends AppCompatActivity {
             TextView finished = (TextView) findViewById(R.id.finishedTextView);
             if(CaughtList.numberCaught == 18){
                 timerTextView.setVisibility(View.GONE);
-                finished.setText("Return to the ITS Booth!");
+                finished.setText(R.string.nfcscreen_finished_text);
             }
         }
     }
@@ -328,16 +319,6 @@ public class NFCScreen extends AppCompatActivity {
             }
         }
 
-        public void stopTimer(){
-            if(isTimerRunning){
-                endTime = System.currentTimeMillis();
-                isTimerRunning = false;
-            }
-            else{
-                Log.e(TAG, "stopTimer request for a timer that isn't running");
-            }
-        }
-
         public boolean isTimerRunning(){
             return isTimerRunning;
         }
@@ -415,12 +396,6 @@ public class NFCScreen extends AppCompatActivity {
         }
     }
 
-    /**
-     * processes the result of a successful QR code scan
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == BARCODE_READER_REQUEST_CODE) {
@@ -597,6 +572,11 @@ public class NFCScreen extends AppCompatActivity {
     /** Called when the user taps the View Caught Nfcm button */
     public void viewCaught(View view) {
         Intent intent = new Intent(this, CaughtList.class);
+        startActivity(intent);
+    }
+
+    public void viewLeaderboard(View view) {
+        Intent intent = new Intent(this, LeaderboardView.class);
         startActivity(intent);
     }
 

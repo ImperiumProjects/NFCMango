@@ -51,7 +51,7 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      * Creates view and adds setOnClickListener for pkball image
-     * @param savedInstanceState
+     * @param savedInstanceState bundle saved state
      */
     @Override
     protected void onCreate(Bundle savedInstanceState){

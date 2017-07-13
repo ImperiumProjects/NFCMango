@@ -1,48 +1,35 @@
 <resources>
-    <string name="app_name">EMBLmon Go</string>
+    <string name="app_name">EMBL GO</string>
     <string name="home_screen_button">EMBL Heidelberg</string>
     <string name="home_screen_button_2">Guest</string>
     <string name="home_screen_list">Find and scan all of the EMBLmon posters around the ATC to win prizes!</string>
     <string name="nfcscreen_button">VIEW EMBLDEX</string>
+    <string name="nfcscreen_leaderboard">VIEW Leaderboard</string>
     <string name="caught_list_header">Caught EMBLmon:</string>
     <string name="action_settings">Settings</string>
-    <string-array name="PKMN">
-        <item>Pikachu</item>
-        <item>Oddish</item>
-        <item>Bulbasaur</item>
-        <item>Dragonite</item>
-        <item>Vulpix</item>
-        <item>Seadra</item>
-    </string-array>
     <string name="list_number_caught">You have caught 0 of 18 EMBLmon</string>
     <string name="nfcscreen_qr_button">Scan QR</string>
-    <string name="pikachu_screen_caught">You caught a Pikachu!</string>
-    <string name="bulbasaur_screen_caught">You caught a Bulbasaur!</string>
-    <string name="dragonite_screen_caught">You caught a Dragonite!</string>
-    <string name="oddish_screen_caught">You caught an Oddish!</string>
-    <string name="seadra_screen_caught">You caught a Seadra!</string>
-    <string name="mewtwo_screen_caught">You caught Mewtwo!</string>
-    <string name="charmander_screen_caught">You caught a Charmander!</string>
-    <string name="squirtle_screen_caught">You caught a Squirtle!</string>
-    <string name="mr_mime_screen_caught">You caught a Mr Mime!</string>
-    <string name="meowth_screen_caught">You caught a Meowth!</string>
-    <string name="pidgey_screen_caught">You caught a Pidgey!</string>
-    <string name="flareon_screen_caught">You caught a Flareon!</string>
-    <string name="chansey_screen_caught">You caught a Chansey!</string>
-    <string name="eevee_screen_caught">You caught an Eevee!</string>
-    <string name="jolteon_screen_caught">You caught a Jolteon!</string>
-    <string name="jigglypuff_screen_caught">You caught a Jigglypuff!</string>
-    <string name="onix_screen_caught">You caught an Onix!</string>
-    <string name="slowpoke_screen_caught">You caught a Slowpoke!</string>
-    <string name="cubone_screen_caught">You caught a Cubone!</string>
-    <string name="vaporeon_screen_caught">You caught a Vaporeon!</string>
-    <string name="abra_screen_caught">You caught an Abra!</string>
-    <string name="vulpix_screen_caught">You caught a Vulpix!</string>
+    <string name="nfcscreen_finished_text">Return to the ITS Booth!</string>
+    <string name="pikachu_screen_caught">You caught a Pikablaz!</string>
+    <string name="bulbasaur_screen_caught">You caught a Matthiasaur!</string>
+    <string name="mewtwo_screen_caught">You caught Mewpert!</string>
+    <string name="charmander_screen_caught">You caught a Charmichael!</string>
+    <string name="squirtle_screen_caught">You caught a Squidan!</string>
+    <string name="mr_mime_screen_caught">You caught a Mr Malain!</string>
+    <string name="meowth_screen_caught">You caught a Meowssi!</string>
+    <string name="pidgey_screen_caught">You caught a Pidguca!</string>
+    <string name="flareon_screen_caught">You caught a Flarlos!</string>
+    <string name="chansey_screen_caught">You caught a Chaso!</string>
+    <string name="eevee_screen_caught">You caught an Lilevee!</string>
+    <string name="jolteon_screen_caught">You caught a Joltelo!</string>
+    <string name="jigglypuff_screen_caught">You caught a Jigglywill!</string>
+    <string name="onix_screen_caught">You caught an Jurix!</string>
+    <string name="slowpoke_screen_caught">You caught a Joaqpoke!</string>
+    <string name="cubone_screen_caught">You caught a Curich!</string>
+    <string name="vaporeon_screen_caught">You caught a Vapagustin!</string>
+    <string name="abra_screen_caught">You caught an Thomabra!</string>
     <string name="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="coloured_pikachu_picture">Coloured Pikachu picture</string>
-    <string name="coloured_seadra_picture">Coloured Seadra picture</string>
-    <string name="coloured_dragonite_picture">Coloured Dragonite picture</string>
-    <string name="coloured_oddish_picture">Coloured Oddish picture</string>
     <string name="scan_barcode_button">Scan barcode</string>
     <string name="no_barcode_captured">No barcode captured</string>
     <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
