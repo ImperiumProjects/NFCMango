@@ -28,7 +28,7 @@
     <string name="cubone_screen_caught">You caught a Curich!</string>
     <string name="vaporeon_screen_caught">You caught a Vapagustin!</string>
     <string name="abra_screen_caught">You caught an Thomabra!</string>
-    <string name="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="placeholder">EMBL was not affected by the recent ransomware outbreaks WannaCry and Petya. These attacks only affect Windows computers, and can be prevented by regular patching, using recent OS versions, and using anti-virus protection. <a href="http://intranet.embl.de">Click me!</a> However, future outbreaks are expected and they will probably be more advanced. EMBL users are strongly advised to back up their data (Tier-1, ownCloud and others are backed up daily), to be careful with suspicious emails, and not to use USB sticks of unknown origin. If in doubt, contact IT Services for advice.</string>
     <string name="coloured_pikachu_picture">Coloured Pikachu picture</string>
     <string name="scan_barcode_button">Scan barcode</string>
     <string name="no_barcode_captured">No barcode captured</string>
