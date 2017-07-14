@@ -156,7 +156,6 @@ public class HomeScreen extends AppCompatActivity {
 
             SimpleDateFormat timerTime = new SimpleDateFormat("HH:mm:ss");
             timerString = timerTime.format(new Date());
-            final String timer = timerString;
             ///
             try {
                 AsyncHttpClient client = new AsyncHttpClient();
@@ -198,17 +197,17 @@ public class HomeScreen extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             }
-                            else if(str.matches(".*\\SError connecting\\b.*")){
-                                error.setText("Please make sure you're connected to an EMBL Network!");
+                            else if(str.matches(".*\\Srror connectin\\b.*")){
+                                error.setText(R.string.embl_network_connection);
                             }
-                            else if(str.matches(".*\\SUsername or Password\\b.*")){
-                                error.setText("Error logging in, please check your Username and Password!");
+                            else if(str.matches(".*\\Ssername or Passwor\\b.*")){
+                                error.setText(R.string.login_error_username_and_password);
                             }
-                            else if(str.matches(".*\\SLogin not possible\\b.*")){
-                                error.setText("LDAP seems to be down, please try again!");
+                            else if(str.matches("Login not possible")){
+                                error.setText(R.string.ldap_down_error);
                             }
                             else{
-                                error.setText("Error logging in, please check your Username and Password!");
+                                error.setText(R.string.login_error_username_and_password);
                             }
                         }
                         catch(Exception e){
@@ -285,15 +284,16 @@ public class HomeScreen extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             }
-                            else if(str.matches(".*\\SName is taken\\b.*")){
-                                error.setText("Username already taken, please choose a different name!");
+                            else if(str.matches("Name is taken")){
+                                error.setText(R.string.username_already_taken);
                             }
-                            else if(str.matches(".*\\SPassword incorrect\\b.*")){
-                                error.setText("Incorrect Guest account Password!");
+                            else if(str.matches("Password Incorrect")){
+                                error.setText(R.string.incorrect_guest_password);
                             }
                             else{
-                                error.setText("There was an error logging in, please check your Username and Password!");
+                                error.setText(R.string.login_error_username_and_password);
                             }
+                            Log.d("loginerrormessage", str);
                         }
                         catch(Exception e){
                             e.printStackTrace();

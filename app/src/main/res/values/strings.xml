@@ -23,11 +23,11 @@
     <string name="eevee_screen_caught">You caught an Lilevee!</string>
     <string name="jolteon_screen_caught">You caught a Joltelo!</string>
     <string name="jigglypuff_screen_caught">You caught a Jigglywill!</string>
-    <string name="onix_screen_caught">You caught an Jurix!</string>
+    <string name="onix_screen_caught">You caught a Jurix!</string>
     <string name="slowpoke_screen_caught">You caught a Joaqpoke!</string>
     <string name="cubone_screen_caught">You caught a Curich!</string>
     <string name="vaporeon_screen_caught">You caught a Vapagustin!</string>
-    <string name="abra_screen_caught">You caught an Thomabra!</string>
+    <string name="abra_screen_caught">You caught a Thomabra!</string>
     <string name="placeholder">EMBL was not affected by the recent ransomware outbreaks WannaCry and Petya. These attacks only affect Windows computers, and can be prevented by regular patching, using recent OS versions, and using anti-virus protection. <a href="http://intranet.embl.de">Click me!</a> However, future outbreaks are expected and they will probably be more advanced. EMBL users are strongly advised to back up their data (Tier-1, ownCloud and others are backed up daily), to be careful with suspicious emails, and not to use USB sticks of unknown origin. If in doubt, contact IT Services for advice.</string>
     <string name="coloured_pikachu_picture">Coloured Pikachu picture</string>
     <string name="scan_barcode_button">Scan barcode</string>
@@ -60,6 +60,11 @@
     <string name="username_field">Username...</string>
     <string name="password_field">Password...</string>
     <string name="home_screen_error">Error logging in!</string>
+    <string name="embl_network_connection">Please make sure you\'re connected to an EMBL Network!</string>
+    <string name="login_error_username_and_password">Error logging in, please check your Username and Password!</string>
+    <string name="ldap_down_error">LDAP seems to be down, please try again!</string>
+    <string name="username_already_taken">Username already taken, please choose a different name!</string>
+    <string name="incorrect_guest_password">Incorrect Guest account Password!</string>
     <string name="home_screen_username_error">Please enter your username!</string>
     <string name="home_screen_password_error">Please enter your password!</string>
     <string name="forest_background_image_blurred">forest background image blurred</string>

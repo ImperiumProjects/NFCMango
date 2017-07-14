@@ -40,24 +40,24 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
 
     //Array of strings for pokemon names in list once caught
     static String[] names = new String[] {
-            "Charmander",
-            "Bulbasaur",
-            "Squirtle",
-            "Pikachu",
-            "Pidgey",
-            "Onix",
-            "Meowth",
-            "Eevee",
-            "Abra",
-            "Jigglypuff",
-            "Chansey",
-            "Slowpoke",
-            "Cubone",
-            "Mr. Mime",
-            "Flareon",
-            "Jolteon",
-            "Vaporeon",
-            "Mewtwo"
+            "Charmichael",
+            "Matthiasaur",
+            "Squidan",
+            "Pikablaz",
+            "Pidguca",
+            "Jurix",
+            "Meowssi",
+            "Lilevee",
+            "Thomabra",
+            "Jigglywill",
+            "Chaso",
+            "Joaqpoke",
+            "Curich",
+            "Mr. Malain",
+            "Flarlos",
+            "Joltelo",
+            "Vapagustin",
+            "Mewpert"
     };
 
     //Corresponding array of pokemon silhouette images
@@ -176,109 +176,109 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                                     long id) {
                 Intent intent;
                 String pkmnClicked = data.get(pos).get("Pkmn");
-                if(pkmnClicked.equals("Charmander")){
+                if(pkmnClicked.equals("Charmichael")){
                     if(CharmanderDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), CharmanderDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Bulbasaur")){
+                else if(pkmnClicked.equals("Matthiasaur")){
                     if(BulbasaurDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), BulbasaurDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Squirtle")){
+                else if(pkmnClicked.equals("Squidan")){
                     if(SquirtleDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), SquirtleDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Pikachu")){
+                else if(pkmnClicked.equals("Pikablaz")){
                     if(PikachuDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), PikachuDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Pidgey")){
+                else if(pkmnClicked.equals("Pidguca")){
                     if(PidgeyDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), PidgeyDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Onix")){
+                else if(pkmnClicked.equals("Jurix")){
                     if(OnixDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), OnixDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Meowth")){
+                else if(pkmnClicked.equals("Meowssi")){
                     if(MeowthDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), MeowthDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Eevee")){
+                else if(pkmnClicked.equals("Lilevee")){
                     if(EeveeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), EeveeDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Abra")){
+                else if(pkmnClicked.equals("Thomabra")){
                     if(AbraDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), AbraDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Jigglypuff")){
+                else if(pkmnClicked.equals("Jigglywill")){
                     if(JigglypuffDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), JigglypuffDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Chansey")){
+                else if(pkmnClicked.equals("Chaso")){
                     if(ChanseyDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), ChanseyDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Slowpoke")){
+                else if(pkmnClicked.equals("Joaqpoke")){
                     if(SlowpokeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), SlowpokeDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Cubone")){
+                else if(pkmnClicked.equals("Curich")){
                     if(CuboneDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), CuboneDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Mr. Mime")){
+                else if(pkmnClicked.equals("Mr. Malain")){
                     if(MrMimeDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), MrMimeDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Flareon")){
+                else if(pkmnClicked.equals("Flarlos")){
                     if(FlareonDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), FlareonDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Jolteon")){
+                else if(pkmnClicked.equals("Joltelo")){
                     if(JolteonDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), JolteonDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Vaporeon")){
+                else if(pkmnClicked.equals("Vapagustin")){
                     if(VaporeonDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), VaporeonDetails.class);
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Mewtwo")){
+                else if(pkmnClicked.equals("Mewpert")){
                     if(MewtwoDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), MewtwoDetails.class);
                         startActivity(intent);
@@ -295,109 +295,109 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
     public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
         Intent intent;
         String pkmnClicked = data.get(pos).get("Pkmn");
-        if(pkmnClicked.equals("Charmander")){
+        if(pkmnClicked.equals("Charmichael")){
             if(CharmanderDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), CharmanderDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Bulbasaur")){
+        else if(pkmnClicked.equals("Matthiasaur")){
             if(BulbasaurDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), BulbasaurDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Squirtle")){
+        else if(pkmnClicked.equals("Squidan")){
             if(SquirtleDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), SquirtleDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Pikachu")){
+        else if(pkmnClicked.equals("Pikablaz")){
             if(PikachuDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), PikachuDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Pidgey")){
+        else if(pkmnClicked.equals("Pidguca")){
             if(PidgeyDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), PidgeyDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Onix")){
+        else if(pkmnClicked.equals("Jurix")){
             if(OnixDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), OnixDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Meowth")){
+        else if(pkmnClicked.equals("Meowssi")){
             if(MeowthDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), MeowthDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Eevee")){
+        else if(pkmnClicked.equals("Lilevee")){
             if(EeveeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), EeveeDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Abra")){
+        else if(pkmnClicked.equals("Thomabra")){
             if(AbraDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), AbraDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Jigglypuff")){
+        else if(pkmnClicked.equals("Jigglywill")){
             if(JigglypuffDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), JigglypuffDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Chansey")){
+        else if(pkmnClicked.equals("Chaso")){
             if(ChanseyDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), ChanseyDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Slowpoke")){
+        else if(pkmnClicked.equals("Joaqpoke")){
             if(SlowpokeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), SlowpokeDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Cubone")){
+        else if(pkmnClicked.equals("Curich")){
             if(CuboneDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), CuboneDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Mr. Mime")){
+        else if(pkmnClicked.equals("Mr. Malain")){
             if(MrMimeDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), MrMimeDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Flareon")){
+        else if(pkmnClicked.equals("Flarlos")){
             if(FlareonDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), FlareonDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Jolteon")){
+        else if(pkmnClicked.equals("Joltelo")){
             if(JolteonDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), JolteonDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Vaporeon")){
+        else if(pkmnClicked.equals("Vapagustin")){
             if(VaporeonDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), VaporeonDetails.class);
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Mewtwo")){
+        else if(pkmnClicked.equals("Mewpert")){
             if(MewtwoDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), MewtwoDetails.class);
                 startActivity(intent);
