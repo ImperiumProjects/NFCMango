@@ -111,9 +111,9 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
 
     /**
      * Generates view and list fragment. Called when view does not yet exist.
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
+     * @param inflater inflater
+     * @param container container
+     * @param savedInstanceState saved info
      * @return returns superclass onCreateView() method with supplied arguments.
      */
     @Override
@@ -159,9 +159,9 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
         }
 
         //KEYS IN MAP
-        String[] from = {"Pkmn", "Image"};
+        //String[] from = {"Pkmn", "Image"};
         //IDS OF VIEWS
-        int[] to = {R.id.nameTxt, R.id.imageView1};
+        //int[] to = {R.id.nameTxt, R.id.imageView1};
     }
 
     /**

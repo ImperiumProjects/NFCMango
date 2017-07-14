@@ -13,7 +13,7 @@ public class JolteonDetails extends AppCompatActivity {
 
     /**
      * Creates view and sets alreadyCaught var to true
-     * @param savedInstanceState
+     * @param savedInstanceState saved info
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
