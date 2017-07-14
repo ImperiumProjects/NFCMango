@@ -2,6 +2,8 @@ package com.imperium.power.nfcmango;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
 
 public class EeveeDetails extends AppCompatActivity {
 
@@ -18,5 +20,8 @@ public class EeveeDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eevee_details);
         alreadyCaught = true;
+
+        TextView factText = (TextView) findViewById(R.id.factText);
+        factText.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
