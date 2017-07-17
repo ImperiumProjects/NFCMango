@@ -67,6 +67,7 @@
     <string name="incorrect_guest_password">Incorrect Guest account Password!</string>
     <string name="home_screen_username_error">Please enter your username!</string>
     <string name="home_screen_password_error">Please enter your password!</string>
+    <string name="game_not_started_error">Please wait until LabDay to Login!</string>
     <string name="forest_background_image_blurred">forest background image blurred</string>
     <string name="embl_style_pokeball">EMBL Style Pokeball</string>
     <string name="pokemon_style_labday_logo">Pokemon Style LabDay logo</string>

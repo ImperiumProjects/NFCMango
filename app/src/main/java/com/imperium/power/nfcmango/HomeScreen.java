@@ -206,6 +206,9 @@ public class HomeScreen extends AppCompatActivity {
                             else if(str.matches("Login not possible")){
                                 error.setText(R.string.ldap_down_error);
                             }
+                            else if(str.matches("Game not started")){
+                                error.setText(R.string.game_not_started_error);
+                            }
                             else{
                                 error.setText(R.string.login_error_username_and_password);
                             }
@@ -289,6 +292,9 @@ public class HomeScreen extends AppCompatActivity {
                             }
                             else if(str.matches("Password Incorrect")){
                                 error.setText(R.string.incorrect_guest_password);
+                            }
+                            else if(str.matches("Game not started")){
+                                error.setText(R.string.game_not_started_error);
                             }
                             else{
                                 error.setText(R.string.login_error_username_and_password);
