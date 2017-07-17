@@ -342,7 +342,7 @@ public class NFCScreen extends AppCompatActivity {
 
         private Notification createNotification(){
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                    .setContentTitle("EMBLmon Go")
+                    .setContentTitle("EMBL GO")
                     .setContentText("Still more to catch! Tap to return!")
                     .setSmallIcon(R.mipmap.pokeball_all_green);
 

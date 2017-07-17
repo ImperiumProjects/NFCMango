@@ -74,4 +74,77 @@
     <string name="home_screen_instructions">Please enter your Username and Password</string>
     <string name="nfc_screen_username">Username</string>
     <string name="labday_logo_nfc_screen">labday_logo</string>
+
+    <string name="abra_fact_text">Did you know that SAP Admin Services now uses EMBL Single-Sign-On? Currently
+    available as a beta test, you can now sign into SAP using your local EMBL site credentials and no longer need
+     to remember a separate password to access the SAP time sheets, leave requests, shopping carts, etc. Visit the IT Services
+     stand today to explore how simple it is. While the beta test was recently announced in Heidelberg, users
+    at other EMBL sites are welcome and encouraged to come and try.</string>
+    <string name="bulbasaur_fact_text">Did you know that every user of EMBL ownCloud now has up to 50GB
+    of free storage available to them? EMBL ownCloud now has over 1100 active users, with 1.2 million
+    files shared. Don\'t have an account yet? Share stuff with others inside and outside of EMBL by signing
+    up at <a href="http://oc.embl.de">oc.embl.de</a>. If you are not from EMBL Heidelberg you can still
+    get an account, just contact <a href="mailto:itsupport@embl.de">itsupport@embl.de</a></string>
+    <string name="chansey_fact_text">Have you heard about the Computer Training Lab? This facility,
+    is located in the ATC and is available to use for training courses. IT Services supports setting up
+    training courses with different operating systems, and - based on properly communicated requirements -
+    with software tailored on-demand. <a href="mailto:itsupport@embl.de">For more information contact Desktop Support</a></string>
+    <string name="charmander_fact_text">Have you heard about the viruses WannaCry and Petya? Although EMBL
+    was not affected due to security in place, it is important to protect yourself for any future outbreaks.
+    Back up your data regularly! (consider centrally backed-up data storage such as Tier-1 or ownCloud),
+    upgrade your OS and update your software to the most recent versions, use anti-virus protection, be
+    suspicious emails and do not use USB sticks of unknown origin.
+        <a href="https://intranet.embl.de/it_services/index.html">If in doubt, contact IT Services for advice</a></string>
+    <string name="cubone_fact_text">Do you know your IT Services? We consist of three teams - IT Operations, Desktop Support
+    and Software and Solutions Development. IT Operations takes care of the data centre and IT infrastructure for daily
+    use, access to emails, and high-performance computing. Desktop Support provides assistance for the three major operating
+    systems (Windows, Mac and Linux), installs OS and software and helps troubleshooting hardware or software problems.
+    Software and Solutions Development are in charge of custom software development involving mainly administrative web apps,
+    the infrastructure for the EMBL web presence and our central databases.</string>
+    <string name="eevee_fact_text">EMBL email was recently made much faster and more reliable! The EMBL email service
+     is now powered by SSD disk and is being mirrored across two data centres for better resilience.</string>
+    <string name="flareon_fact_text">We\'ve been working hard to make our data centre and EMBL core IT services resilient.
+    Our business continuity strategy builds on a second data centre hosting a hot-standby server virtualisation cluster and
+    a copy of cross-centre mirrored data storage. This constantly developed infrastructure is what helps us prevent or limit down
+    time for priority IT services such as network, WiFi, authentication, email and web in case of disasters
+    and major issues with our primary data centre.</string>
+    <string name="jigglypuff_fact_text">Have you heard about the EMBL 3D Cloud? Based on high-performance graphics and
+     visualisation power that is accessible from the Heidelberg data centre, it can support your QA, data analysis
+     on-demand, anywhere and in a cost-efficient way. <a href="mailto:itsupport@embl.de">Contact IT Services to learn more.</a></string>
+    <string name="jolteon_fact_text">Did you know High Performance Computing at EMBL Heidelberg is quite popular across science?
+    More than 200 users from groups at EMBL Heidelberg as well as those from other EMBL sites are using the EMBL HPC Cluster which currently
+    has about 13,000 CPU cores, 70+TB of RAM and access to an ultrafast parallel file system.</string>
+    <string name="meowth_fact_text">Is your Windows computer protected from malware threats? If your computer doesn\'t have any
+    anti-virus protection installed, IT Services can install Kaspersky Anti-Virus for you - free of charge and even if you use
+    a private computer for your work at EMBL. For more details, <a href="mailto:itsupport@embl.de">contact the Desktop Support team.</a></string>
+    <string name="mewtwo_fact_text"></string>
+    <string name="mr_mime_fact_text">Have you heard about the new and improved EMBL Web Search? Based on ElasticSearch and
+    search engine technology from Google it is not only faster and more accurate, but also much more user friendly. Don\'t
+    believe us? <a href="https://itsnews.embl.de/new-embl-web-search/">Try it out on the intranet or on the EMBL external site.</a></string>
+    <string name="onix_fact_text">Back in March, all 4 IT departments from across EMBL came together for an <a href="https://intranet.embl.de/communication_outreach/internal_news/2017/170511-it-retreat/index.html">EMBL
+    IT Retreat</a> here in Heidelberg to foster cross-site collaboration, knowledge exchange and exploring joint
+    projects along a coherent IT strategy. Key topics discussed included simplified access to IT resources
+     shared across EMBL, establishing networking standards or cross-site disaster recovery. The meeting was very
+     successful and we hope that it results in improvements to the IT services we provide to you, our users.</string>
+    <string name="pidgey_fact_text">Did you know that users across EMBL have access to Google Calendar? Visit
+    <a href="gcal.embl.de">gcal.embl.de</a>, enter your local EMBL site username and password and start managing your
+    calendar, contacts, tasks and notes in one place. Share calendars with colleagues or people outside EMBL,
+     synchronize with your phone or computer, reserve a room of lab equipment. More information on Google
+    Calendar is available <a href="https://intranet.embl.de/it_services/services/calendar/">here.</a></string>
+    <string name="pikachu_fact_text">IT Services has been working hard configuring the IT setup for the new EMBL
+    Barcelona site. So far, the internal network, the firewalls and a 1Gb internet link have been established, which
+    will be increased to a 10Gb link soon. The domain, web page, and user management are also up. Next
+    up, data storage, virtualistion and computing will be configured. From all in IT Services, we want to give
+    a warm welcome to EMBL Barcelona and wish them a big success!</string>
+    <string name="slowpoke_fact_text">Did you know that EMBL\'s data centre is virtualised? The team currently operates
+    450 virtual servers based on 3 VM clusters with a total of 600 CPU Cores and 6TB of RAM, and we use VMware vSphere
+     and VMware Horizon. The main benefits of data centre virtualisation are around manageabbility, resilience and cost savings
+     in energy and space.</string>
+    <string name="squirtle_fact_text">Did you know that you can connect to eduroam WiFi when travelling to one
+    of the many eduroam partner sites world-wide? Just configure your eduroam account while on-site at EMBL and
+    enjoy easy internet access while being away! Likewise, if you\'re visiting from another eduroam participating
+    institution, you easily can access WiFi here. <a href="https://intranet.embl.de/it_services/services/network_access/Wireless_Access/eduroam/index.html">Configure your eduroam account.</a></string>
+    <string name="vaporeon_fact_text">You\'d need over 745 million floppy disks to store a single petabyte of data.
+    Right now, our data centre can store around 25 petabytes of data on a multi-tiered data storage infrastructure using
+    disk and tape technology.</string>
 </resources>
