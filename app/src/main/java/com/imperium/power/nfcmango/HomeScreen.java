@@ -43,10 +43,11 @@ public class HomeScreen extends AppCompatActivity {
     static String password;
     static String usernameFilename = "usernameFile";
     private NfcAdapter mNfcAdapter;
-    KeyStore keyStore;
     static String currentDateandTime;
     static String timerString;
     static final int READ_BLOCK_SIZE = 100;
+
+    KeyStore keyStore;
     String s;
 
     /**

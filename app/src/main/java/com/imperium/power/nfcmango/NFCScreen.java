@@ -40,18 +40,18 @@ public class NFCScreen extends AppCompatActivity {
 
     private static final String LOG_TAG = NFCScreen.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
+    private final Handler mUpdateTimeHandler = new UIUpdateHandler(this);
+    private final static int MSG_UPDATE_TIME = 0;
+
     private NfcAdapter mNfcAdapter;
     private TimerService timerService;
-    public static boolean serviceBound;
     private TextView timerTextView;
-
-    private final Handler mUpdateTimeHandler = new UIUpdateHandler(this);
-
-    private final static int MSG_UPDATE_TIME = 0;
 
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NfcDemo";
     public static boolean timerStarted;
+    public static boolean serviceBound;
+
     String s;
     static String username;
 

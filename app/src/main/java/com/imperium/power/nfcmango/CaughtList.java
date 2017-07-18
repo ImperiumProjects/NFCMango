@@ -27,7 +27,6 @@ import cz.msebera.android.httpclient.Header;
 public class CaughtList extends AppCompatActivity {
 
     static int numberCaught = 0;
-    TextView mTextView;
     static int[] pkmnArray = {964, 823, 728,
             38, 741, 581,
             562, 664, 82,
@@ -36,10 +35,12 @@ public class CaughtList extends AppCompatActivity {
             905, 225, 961};
     static String caughtPkmn;
     static KeyStore keyStore;
-    String s;
     static String username;
     static String currentDateandTime;
     static NotificationManager notificationManager;
+
+    TextView mTextView;
+    String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
