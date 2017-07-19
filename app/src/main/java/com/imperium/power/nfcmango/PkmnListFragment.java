@@ -44,7 +44,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             "Matthiasaur",
             "Squidan",
             "Pikablaz",
-            "Pidguca",
+            "Pidgluca",
             "Jurix",
             "Meowssi",
             "Lilevee",
@@ -56,7 +56,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
             "Mr. Malain",
             "Flarlos",
             "Joltelo",
-            "Vapagustin",
+            "Vaporgustin",
             "Mewpert"
     };
 
@@ -200,7 +200,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Pidguca")){
+                else if(pkmnClicked.equals("Pidgluca")){
                     if(PidgeyDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), PidgeyDetails.class);
                         startActivity(intent);
@@ -272,7 +272,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                         startActivity(intent);
                     }
                 }
-                else if(pkmnClicked.equals("Vapagustin")){
+                else if(pkmnClicked.equals("Vaporgustin")){
                     if(VaporeonDetails.alreadyCaught) {
                         intent = new Intent(v.getContext(), VaporeonDetails.class);
                         startActivity(intent);
@@ -319,7 +319,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Pidguca")){
+        else if(pkmnClicked.equals("Pidgluca")){
             if(PidgeyDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), PidgeyDetails.class);
                 startActivity(intent);
@@ -391,7 +391,7 @@ public class PkmnListFragment extends ListFragment implements OnItemClickListene
                 startActivity(intent);
             }
         }
-        else if(pkmnClicked.equals("Vapagustin")){
+        else if(pkmnClicked.equals("Vaporgustin")){
             if(VaporeonDetails.alreadyCaught) {
                 intent = new Intent(v.getContext(), VaporeonDetails.class);
                 startActivity(intent);

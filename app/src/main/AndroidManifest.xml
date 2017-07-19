@@ -124,7 +124,7 @@
         </activity>
         <activity
             android:name=".PidgeyDetails"
-            android:label="Pidguca"
+            android:label="Pidgluca"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
@@ -223,7 +223,7 @@
         </activity>
         <activity
             android:name=".VaporeonDetails"
-            android:label="Vapagustin"
+            android:label="Vaporgustin"
             android:parentActivityName=".CaughtList"
             android:screenOrientation="portrait">
 
