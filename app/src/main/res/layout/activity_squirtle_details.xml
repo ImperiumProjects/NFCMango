@@ -57,7 +57,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="32dp"
         android:text="@string/squirtle_fact_text"
-        android:textColorLink="@android:color/white"
+        android:textColorLink="@color/logoColor"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
