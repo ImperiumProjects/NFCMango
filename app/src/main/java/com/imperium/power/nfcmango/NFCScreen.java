@@ -540,25 +540,31 @@ public class NFCScreen extends AppCompatActivity {
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void setupForegroundDispatch(final Activity activity, NfcAdapter adapter) {
-        final Intent intent = new Intent(activity.getApplicationContext(), activity.getClass());
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-        final PendingIntent pendingIntent = PendingIntent.getActivity(activity.getApplicationContext(), 0, intent, 0);
-
-        IntentFilter[] filters = new IntentFilter[1];
-        String[][] techList = new String[][]{};
-
-        // Notice that this is the same filter as in our manifest.
-        filters[0] = new IntentFilter();
-        filters[0].addAction(NfcAdapter.ACTION_NDEF_DISCOVERED);
-        filters[0].addCategory(Intent.CATEGORY_DEFAULT);
         try {
-            filters[0].addDataType(MIME_TEXT_PLAIN);
-        } catch (MalformedMimeTypeException e) {
-            throw new RuntimeException("Check your mime type.");
-        }
+            final Intent intent = new Intent(activity.getApplicationContext(), activity.getClass());
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
+            final PendingIntent pendingIntent = PendingIntent.getActivity(activity.getApplicationContext(), 0, intent, 0);
+
+            IntentFilter[] filters = new IntentFilter[1];
+            String[][] techList = new String[][]{};
+
+            // Notice that this is the same filter as in our manifest.
+            filters[0] = new IntentFilter();
+            filters[0].addAction(NfcAdapter.ACTION_NDEF_DISCOVERED);
+            filters[0].addCategory(Intent.CATEGORY_DEFAULT);
+            try {
+                filters[0].addDataType(MIME_TEXT_PLAIN);
+            } catch (MalformedMimeTypeException e) {
+                throw new RuntimeException("Check your mime type.");
+            }
+
+            adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
+        }
+        catch (Exception e)
+        {
+            Log.w("Sorry no NFC", e);
+        }
     }
 
     /**
@@ -566,7 +572,13 @@ public class NFCScreen extends AppCompatActivity {
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
-        adapter.disableForegroundDispatch(activity);
+        try {
+            adapter.disableForegroundDispatch(activity);
+        }
+        catch (Exception e)
+        {
+            Log.wtf("Probably no NFC", e);
+        }
     }
 
     /** Called when the user taps the View Caught Nfcm button */

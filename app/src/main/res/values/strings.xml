@@ -9,7 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="list_number_caught">You have caught 0 of 18 EMBLmon</string>
     <string name="nfcscreen_qr_button">Scan QR</string>
-    <string name="nfcscreen_finished_text">Congratulations, you caught them all! \nReturn to the IT Services booth to see if you have won a prize.</string>
+    <string name="nfcscreen_finished_text">You caught them all!</string>
     <string name="pikachu_screen_caught">You caught a Pikablaz!</string>
     <string name="bulbasaur_screen_caught">You caught a Matthiasaur!</string>
     <string name="mewtwo_screen_caught">You caught Mewpert!</string>
@@ -84,12 +84,11 @@
     files shared. Don\'t have an account yet? Share stuff with others inside and outside of EMBL by signing
     up at <a href="http://oc.embl.de">oc.embl.de</a>. If you are not from EMBL Heidelberg you can still
     get an account, just contact <a href="mailto:itsupport@embl.de">itsupport@embl.de.</a></string>
-    <string name="chansey_fact_text">Nickname: Vasiliki Karyoti \n \nDid you know that users across EMBL have access to Google Calendar? Visit
-    <a href="gcal.embl.de">gcal.embl.de/it/fr (depending on your EMBL site)</a>, enter your local EMBL site username and password and start managing your
+    <string name="chansey_fact_text">Nickname: Vasiliki Karyoti \n \nDid you know that users across EMBL have access to <a href="http://gcal.embl.de"> Google Calendar? </a> Visit gcal.embl.de/it/fr (depending on your EMBL site), enter your local EMBL site username and password and start managing your
     calendar, contacts, tasks and notes in one place. Share calendars with colleagues or people outside EMBL,
      synchronize with your phone or computer, reserve a room or lab equipment. More information on Google
     Calendar is available <a href="https://intranet.embl.de/it_services/services/calendar/">here.</a></string>
-    <string name="charmander_fact_text">Nickname: Michael Wahlers \n \nDid you know that SAP Admin Services now uses EMBL Single Sign-On? Currently
+    <string name="charmander_fact_text">Nickname: Michael Wahlers \n \nDid you know that SAP Admin Services now uses <a href="https://itsnews.embl.de/sso-access-to-sap-admin-services/">EMBL Single Sign-On</a>? Currently
     available as a <a href="https://saperp.embl.de/nwbc">beta test</a>, you can now sign into SAP using your local EMBL site credentials and no longer need
      to remember a separate password to access the SAP time sheets, leave requests, shopping carts, etc. Visit the IT Services
      stand today to explore how simple it is. While the <a href="https://saperp.embl.de/nwbc">beta test</a> was recently announced in Heidelberg, users
@@ -144,8 +143,8 @@
     <string name="squirtle_fact_text">Nickname: Dan Anderson \n \nHave you heard about the EMBL 3D Cloud? Based on high-performance graphics and
      visualisation power that is accessible from the Heidelberg data centre, it can support your QA, data analysis
      on-demand, anywhere and in a cost-efficient way. <a href="mailto:itsupport@embl.de">Contact IT Services to learn more.</a></string>
-    <string name="vaporeon_fact_text">Nickname: Agustin Villalba Casas \n \nHave you heard about the new and improved EMBL Web Search? Based on ElasticSearch and
+    <string name="vaporeon_fact_text">Nickname: Agustin Villalba Casas \n \nHave you heard about the new and improved <a href="https://itsnews.embl.de/new-embl-web-search/">EMBL Web Search</a>? Based on ElasticSearch and
     search engine technology from Google it is not only faster and more accurate, but also much more user friendly. Don\'t
-    believe us? <a href="https://itsnews.embl.de/new-embl-web-search/">Try it out on the intranet or on the EMBL external site.</a> If you have,
+    believe us? Try it out on the intranet or on the EMBL external site. If you have,
      <a href="mailto:info.its@embl.de">send us your feedback.</a></string>
 </resources>
